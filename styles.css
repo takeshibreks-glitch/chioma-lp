@@ -250,6 +250,35 @@ h3 {
   margin: 0 0 20px;
 }
 
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 46px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.metrics-grid div {
+  min-height: 170px;
+  padding: 26px 24px;
+  background: var(--white);
+}
+
+.metrics-grid strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--blue);
+  font-size: clamp(2.1rem, 4.4vw, 4rem);
+  font-weight: 200;
+  line-height: 1;
+}
+
+.metrics-grid span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .image-band {
   background: var(--ink);
 }
@@ -314,6 +343,47 @@ h3 {
   font-size: 0.92rem;
 }
 
+.inventory {
+  background:
+    linear-gradient(135deg, rgba(32, 79, 56, 0.08), rgba(0, 93, 164, 0.08)),
+    var(--paper);
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 42px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.flow-grid div {
+  min-height: 220px;
+  padding: 28px 22px;
+  background: var(--white);
+}
+
+.flow-grid small {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--green);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.flow-grid strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+.flow-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
@@ -341,6 +411,14 @@ h3 {
 .specs strong {
   text-align: right;
   font-weight: 500;
+}
+
+.story-note {
+  margin: 34px 0 0;
+  padding: 24px 28px;
+  border-left: 3px solid var(--blue);
+  color: var(--muted);
+  background: var(--white);
 }
 
 .label-gallery,
@@ -391,6 +469,12 @@ h3 {
 
 .card-grid p {
   color: rgba(255, 255, 255, 0.74);
+}
+
+.evidence-note {
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.86rem;
 }
 
 .cycle-grid {
@@ -710,7 +794,9 @@ footer strong {
 
   .card-grid,
   .cycle-grid,
-  .pricing-grid {
+  .pricing-grid,
+  .metrics-grid,
+  .flow-grid {
     grid-template-columns: 1fr;
   }
 
