@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHIOMA — 韓国発「飲む美容習慣」を、サロンの店販へ。</title>
+<meta name="description" content="韓国で広がるオレショット。パウチ1個から始められる、サロンの新しい食品店販。29年現役の美容師がイタリア・プーリアから直輸入したコラティーナ単一品種EVOO。">
+<meta property="og:title" content="CHIOMA — 韓国発「飲む美容習慣」を、サロンの店販へ。">
+<meta property="og:description" content="韓国オレショット × サロン店販。パウチ1個から、コラティーナ単一品種EVOOで始める食品店販。">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #FAF7F1;
+  --surface: #FFFFFF;
+  --ink: #1A1A1A;
+  --ink-soft: #4A4A48;
+  --ink-muted: #8A8A85;
+  --line: #E6E1D6;
+  --line-soft: #F0EBE0;
+  --accent: #3D4A2E;
+  --accent-soft: #6B7A4F;
+  --warm: #A86C3F;
+  --highlight: #C9B584;
+  --serif-jp: 'Noto Serif JP', serif;
+  --serif-en: 'Cormorant Garamond', serif;
+  --sans-jp: 'Noto Sans JP', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans-jp);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 680px; margin: 0 auto; padding: 0 32px; }
+
+/* ===== Header ===== */
+header.site-header {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+header.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: var(--serif-en);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.3em;
+  color: var(--ink);
+}
+.logo-sub {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+.header-cta {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-muted);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.header-cta:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ===== Hero ===== */
+.hero {
+  padding: 90px 0 80px;
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent-soft);
+  letter-spacing: 0.15em;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  font-size: clamp(30px, 4.8vw, 48px);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 36px;
+}
+.hero h1 em {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+.hero-lead {
+  font-size: 16px;
+  line-height: 2.05;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin-bottom: 40px;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.hero-tag {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  border: 1px solid var(--accent);
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+.preorder-banner {
+  margin-top: 8px;
+  padding: 22px 28px;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.preorder-mark {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-right: 24px;
+  border-right: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.preorder-text { display: flex; flex-direction: column; gap: 4px; }
+.preorder-text strong {
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+.preorder-text span {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* ===== Section structure ===== */
+section {
+  padding: 100px 0;
+  border-top: 1px solid var(--line-soft);
+}
+.section-num {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--accent-soft);
+  letter-spacing: 0.2em;
+  margin-bottom: 20px;
+  display: block;
+}
+.section-title {
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  font-size: clamp(26px, 3.5vw, 36px);
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  margin-bottom: 48px;
+  color: var(--ink);
+}
+.section-title em {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+/* ===== Trend Section ===== */
+.trend-intro {
+  font-size: 16px;
+  line-height: 2.05;
+  color: var(--ink-soft);
+  margin-bottom: 56px;
+  max-width: 640px;
+}
+.trend-intro em {
+  font-style: normal;
+  color: var(--ink);
+  font-weight: 400;
+  border-bottom: 1px solid var(--accent-soft);
+  padding-bottom: 1px;
+}
+.trend-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.trend-stat {
+  text-align: left;
+  padding: 32px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.trend-stat .num {
+  font-family: var(--serif-en);
+  font-weight: 300;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.trend-stat .label {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.trend-source {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 11px;
+  color: var(--ink-muted);
+  margin-top: 24px;
+  letter-spacing: 0.1em;
+}
+
+/* ===== Opportunity Section ===== */
+.opportunity-quote {
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.9;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  padding: 0 0 0 32px;
+  border-left: 1px solid var(--accent);
+  margin: 48px 0;
+}
+.opportunity-quote em {
+  font-style: normal;
+  color: var(--accent);
+  font-family: var(--serif-en);
+  font-weight: 400;
+  font-size: 0.95em;
+  display: block;
+  margin-top: 16px;
+  letter-spacing: 0.15em;
+}
+.opportunity-body p {
+  font-size: 16px;
+  line-height: 2.05;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+.opportunity-body p em {
+  font-style: normal;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+/* ===== Process Section (4 steps) ===== */
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 48px;
+  margin-top: 56px;
+}
+.process-step {
+  position: relative;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.process-num {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--accent-soft);
+  letter-spacing: 0.25em;
+  margin-bottom: 12px;
+  display: block;
+}
+.process-step h3 {
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+.process-step p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+}
+
+/* ===== Lineup Section ===== */
+.lineup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 56px;
+}
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+}
+.product-card.featured {
+  border: 2px solid var(--accent);
+}
+.product-badge {
+  display: inline-block;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  background: var(--line-soft);
+  padding: 4px 12px;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+.product-kind {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.product-name {
+  font-family: var(--serif-jp);
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.product-en {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+.product-price {
+  font-family: var(--serif-en);
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+  line-height: 1;
+}
+.product-price-note {
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.product-card.featured .product-price { color: var(--accent); }
+.product-features {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.product-features li {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 4px;
+}
+.product-features li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent-soft);
+}
+.lineup-note {
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-top: 32px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ===== Evidence ===== */
+.evidence-intro {
+  font-size: 16px;
+  line-height: 2;
+  color: var(--ink-soft);
+  margin-bottom: 56px;
+  max-width: 620px;
+}
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.spec-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 32px 28px;
+}
+.spec-card.highlight { border: 1px solid var(--accent); }
+.spec-label {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.spec-value {
+  font-family: var(--serif-en);
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.spec-card.highlight .spec-value { color: var(--accent); }
+.spec-unit { font-size: 14px; color: var(--ink-muted); margin-left: 4px; }
+.spec-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-top: 12px;
+}
+.spec-cert {
+  background: var(--line-soft);
+  padding: 32px 36px;
+}
+.spec-cert-label {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.spec-cert-body {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+.food-disclaimer {
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 24px;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+/* ===== Story ===== */
+.story-quote {
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 2;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  padding: 0 0 0 32px;
+  border-left: 1px solid var(--accent);
+  margin-bottom: 40px;
+}
+.story-body p {
+  font-size: 16px;
+  line-height: 2.1;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+.story-sig {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink);
+  margin-top: 32px;
+  letter-spacing: 0.05em;
+}
+.story-sig-sub {
+  font-family: var(--sans-jp);
+  font-style: normal;
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-top: 6px;
+  letter-spacing: 0.1em;
+}
+
+/* ===== Terms ===== */
+.terms-table { width: 100%; border-collapse: collapse; margin: 40px 0; }
+.terms-table tr { border-bottom: 1px solid var(--line); }
+.terms-table tr:first-child { border-top: 1px solid var(--line); }
+.terms-table th, .terms-table td {
+  padding: 22px 0;
+  text-align: left;
+  vertical-align: top;
+}
+.terms-table th {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--ink-muted);
+  font-weight: 400;
+  text-transform: uppercase;
+  width: 36%;
+  padding-right: 24px;
+}
+.terms-table td {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.85;
+}
+.terms-table td .sub {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+.price-locked {
+  background: var(--line-soft);
+  padding: 24px 32px;
+  margin: 32px 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.9;
+}
+.price-locked em {
+  font-style: normal;
+  color: var(--ink);
+  font-family: var(--serif-jp);
+  font-weight: 400;
+}
+
+/* ===== CTA / Form ===== */
+.cta-section {
+  background: var(--ink);
+  color: #F5F2EB;
+  padding: 100px 0;
+  border-top: none;
+}
+.cta-section .section-num { color: rgba(245, 242, 235, 0.5); }
+.cta-section .section-title { color: #F5F2EB; }
+.cta-section .section-title em { color: var(--highlight); }
+.cta-lead {
+  font-size: 16px;
+  line-height: 2;
+  color: rgba(245, 242, 235, 0.75);
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+.form { max-width: 520px; }
+.form-row { margin-bottom: 24px; }
+.form-row label {
+  display: block;
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: rgba(245, 242, 235, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.form-row input[type="text"], .form-row input[type="email"], .form-row select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(245, 242, 235, 0.3);
+  padding: 12px 0;
+  color: #F5F2EB;
+  font-family: var(--sans-jp);
+  font-size: 15px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-row input[type="text"]:focus, .form-row input[type="email"]:focus, .form-row select:focus {
+  border-color: var(--highlight);
+}
+.form-row input::placeholder { color: rgba(245, 242, 235, 0.35); }
+.form-row select option { background: var(--ink); color: #F5F2EB; }
+
+/* Checkbox group */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+.checkbox-label {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border: 1px solid rgba(245, 242, 235, 0.2);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  color: #F5F2EB !important;
+  font-family: var(--sans-jp) !important;
+  font-size: inherit !important;
+  margin-bottom: 0 !important;
+}
+.checkbox-label:hover {
+  border-color: rgba(245, 242, 235, 0.4);
+}
+.checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.checkbox-mark {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(245, 242, 235, 0.5);
+  background: transparent;
+  flex-shrink: 0;
+  margin-top: 3px;
+  position: relative;
+  transition: background 0.15s, border-color 0.15s;
+}
+.checkbox-label input[type="checkbox"]:checked ~ .checkbox-mark {
+  background: var(--highlight);
+  border-color: var(--highlight);
+}
+.checkbox-label input[type="checkbox"]:checked ~ .checkbox-mark::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--ink);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checkbox-label:has(input:checked) {
+  border-color: var(--highlight);
+  background: rgba(201, 181, 132, 0.05);
+}
+.checkbox-text { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.checkbox-text strong {
+  font-family: var(--serif-jp);
+  font-weight: 500;
+  font-size: 14px;
+  color: #F5F2EB;
+  letter-spacing: 0.03em;
+}
+.checkbox-text small {
+  font-size: 12px;
+  color: rgba(245, 242, 235, 0.55);
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+
+.form-row-address {
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease, margin-bottom 0.25s ease;
+}
+.form-row-address.show {
+  max-height: 200px;
+  opacity: 1;
+  margin-bottom: 24px;
+}
+.form-submit {
+  background: var(--highlight);
+  color: var(--ink);
+  border: none;
+  padding: 20px 48px;
+  font-family: var(--serif-jp);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  margin-top: 32px;
+  transition: background 0.2s, transform 0.15s;
+}
+.form-submit:hover { background: #D4C295; }
+.form-submit:active { transform: translateY(1px); }
+.form-note {
+  font-size: 12px;
+  color: rgba(245, 242, 235, 0.5);
+  margin-top: 24px;
+  line-height: 1.8;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 56px 0 40px;
+  border-top: 1px solid var(--line);
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-brand {
+  font-family: var(--serif-en);
+  font-size: 18px;
+  letter-spacing: 0.25em;
+  color: var(--ink);
+}
+.footer-info {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--ink-muted);
+}
+
+/* ===== Animations ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 720px) {
+  body { font-size: 15px; line-height: 1.95; }
+  .container, .container-narrow { padding: 0 20px; }
+  
+  /* Header */
+  header.site-header { padding: 20px 0; }
+  header.site-header .container { gap: 16px; }
+  .logo { font-size: 20px; letter-spacing: 0.25em; }
+  .logo-sub { font-size: 9px; }
+  .header-cta { font-size: 12px; white-space: nowrap; }
+  
+  /* Hero */
+  .hero { padding: 56px 0 56px; }
+  .hero-eyebrow { font-size: 12px; margin-bottom: 20px; line-height: 1.6; }
+  .hero h1 {
+    font-size: 30px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+  }
+  .hero h1 br { display: none; }
+  .hero h1 em { display: inline; }
+  .hero-lead {
+    font-size: 14px;
+    line-height: 1.95;
+    margin-bottom: 32px;
+  }
+  .hero-lead br { display: none; }
+  .hero-tags { gap: 6px; margin-bottom: 32px; }
+  .hero-tag { font-size: 10px; padding: 5px 11px; letter-spacing: 0.15em; }
+  
+  /* Sections */
+  section { padding: 64px 0; }
+  .cta-section { padding: 64px 0; }
+  .section-num { font-size: 12px; margin-bottom: 14px; }
+  .section-title {
+    font-size: 24px;
+    line-height: 1.55;
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .section-title br { display: none; }
+  
+  /* Trend stats */
+  .trend-stats { grid-template-columns: 1fr; gap: 10px; }
+  .trend-stat { padding: 24px 22px; display: flex; align-items: center; gap: 20px; }
+  .trend-stat .num { font-size: 36px; margin-bottom: 0; flex-shrink: 0; min-width: 120px; }
+  .trend-stat .label { font-size: 12px; }
+  .trend-intro { font-size: 14px; line-height: 1.95; margin-bottom: 36px; }
+  .trend-source { font-size: 10px; }
+  
+  /* Opportunity */
+  .opportunity-quote {
+    padding-left: 18px;
+    font-size: 18px;
+    line-height: 1.85;
+    margin: 32px 0;
+  }
+  .opportunity-quote em { font-size: 12px; letter-spacing: 0.1em; }
+  .opportunity-body p { font-size: 14px; line-height: 1.95; }
+  
+  /* Process steps */
+  .process-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 40px; }
+  .process-step { padding-top: 22px; }
+  .process-step h3 { font-size: 16px; margin-bottom: 12px; }
+  .process-step p { font-size: 13px; line-height: 1.85; }
+  .process-num { font-size: 11px; margin-bottom: 8px; }
+  
+  /* Lineup */
+  .lineup { grid-template-columns: 1fr; gap: 14px; margin-top: 40px; }
+  .product-card { padding: 28px 24px; }
+  .product-badge { font-size: 10px; padding: 3px 10px; margin-bottom: 16px; }
+  .product-kind { font-size: 10px; margin-bottom: 6px; }
+  .product-name { font-size: 18px; margin-bottom: 6px; }
+  .product-en { font-size: 13px; margin-bottom: 18px; }
+  .product-price { font-size: 28px; }
+  .product-price-note { font-size: 11px; margin-bottom: 18px; }
+  .product-features { padding-top: 18px; margin-top: 18px; }
+  .product-features li { font-size: 12px; line-height: 1.85; padding-left: 14px; }
+  .lineup-note { font-size: 12px; margin-top: 24px; padding: 0 12px; }
+  
+  /* Evidence / specs */
+  .spec-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 32px; }
+  .spec-card { padding: 22px 18px; }
+  .spec-label { font-size: 9px; margin-bottom: 12px; letter-spacing: 0.2em; }
+  .spec-value { font-size: 28px; }
+  .spec-unit { font-size: 11px; }
+  .spec-desc { font-size: 11px; line-height: 1.7; margin-top: 10px; }
+  .spec-cert { padding: 24px 22px; }
+  .spec-cert-label { font-size: 10px; }
+  .spec-cert-body { font-size: 12px; line-height: 1.85; }
+  .evidence-intro { font-size: 14px; line-height: 1.95; margin-bottom: 36px; }
+  .food-disclaimer { font-size: 11px; line-height: 1.7; }
+  
+  /* Story */
+  .story-quote {
+    padding-left: 18px;
+    font-size: 17px;
+    line-height: 1.85;
+    margin-bottom: 32px;
+  }
+  .story-body p { font-size: 14px; line-height: 1.95; margin-bottom: 20px; }
+  .story-sig { font-size: 14px; margin-top: 24px; }
+  .story-sig-sub { font-size: 11px; }
+  
+  /* Terms — change to stacked layout */
+  .terms-table { display: block; margin: 28px 0; }
+  .terms-table tbody, .terms-table tr { display: block; width: 100%; }
+  .terms-table tr {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .terms-table tr:first-child { border-top: 1px solid var(--line); }
+  .terms-table th, .terms-table td {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+  .terms-table th {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+    padding-right: 0;
+  }
+  .terms-table td { font-size: 14px; line-height: 1.75; }
+  .terms-table td .sub { font-size: 11px; margin-top: 4px; line-height: 1.6; }
+  
+  .price-locked {
+    padding: 20px 22px;
+    font-size: 13px;
+    line-height: 1.85;
+    margin: 24px 0;
+  }
+  
+  /* Pre-order banner */
+  .preorder-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px 22px;
+    margin-top: 12px;
+  }
+  .preorder-mark {
+    padding-right: 0;
+    padding-bottom: 10px;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    width: 100%;
+    font-size: 10px;
+  }
+  .preorder-text strong { font-size: 14px; line-height: 1.6; }
+  .preorder-text span { font-size: 12px; line-height: 1.7; }
+  
+  /* CTA / Form */
+  .cta-lead { font-size: 14px; line-height: 1.95; margin-bottom: 36px; }
+  .cta-lead br { display: none; }
+  .form-row { margin-bottom: 20px; }
+  .form-row label { font-size: 10px; margin-bottom: 8px; letter-spacing: 0.2em; }
+  .form-row input[type="text"], .form-row input[type="email"], .form-row select {
+    font-size: 16px; /* iOS zoom prevention: needs 16px min */
+    padding: 10px 0;
+  }
+  .checkbox-label { padding: 14px 16px; gap: 12px; }
+  .checkbox-mark { width: 16px; height: 16px; margin-top: 4px; }
+  .checkbox-text strong { font-size: 13px; }
+  .checkbox-text small { font-size: 11px; }
+  .form-submit {
+    padding: 18px 32px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 28px;
+  }
+  .form-note { font-size: 11px; line-height: 1.7; margin-top: 20px; }
+  
+  /* Footer */
+  footer { padding: 36px 0 28px; }
+  footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  footer .footer-info { font-size: 11px; }
+  footer .footer-info[style*="right"] { text-align: left !important; }
+  .footer-brand { font-size: 16px; }
+}
+
+/* ===== Image blocks ===== */
+.hero-visual {
+  margin-top: 64px;
+  overflow: hidden;
+}
+.hero-visual img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.section-visual {
+  margin-bottom: 56px;
+  overflow: hidden;
+}
+.section-visual img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.section-visual.short img {
+  height: 280px;
+}
+
+.product-img-wrap {
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  background: var(--line-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product-card.featured .product-img-wrap {
+  background: #f0ede5;
+}
+.product-img-wrap.product-img-contain img {
+  object-fit: contain;
+  padding: 20px;
+}
+
+.story-split {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 56px;
+  align-items: start;
+}
+.story-portrait img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .hero-visual img { height: 280px; object-position: center 15%; }
+  .section-visual img { height: 240px; }
+  .section-visual.short img { height: 200px; }
+  .story-split { grid-template-columns: 1fr; gap: 32px; }
+  .story-portrait { order: -1; }
+  .story-portrait img { height: 260px; object-position: top; }
+  .product-img-wrap { height: 160px; }
+}
+
+/* Extra small phones */
+@media (max-width: 380px) {
+  .container, .container-narrow { padding: 0 16px; }
+  .hero h1 { font-size: 26px; }
+  .section-title { font-size: 22px; }
+  .trend-stat { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .trend-stat .num { min-width: auto; }
+  .spec-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body data-screen-label="04 Quiet">
+
+<header class="site-header">
+  <div class="container">
+    <div>
+      <div class="logo">CHIOMA</div>
+      <div class="logo-sub">Coratina EVOO from Puglia</div>
+    </div>
+    <a href="#contact" class="header-cta">資料・サンプルを請求する</a>
+  </div>
+</header>
+
+<section class="hero" style="border-top: none;">
+  <div class="container">
+    <div class="hero-eyebrow">— For salons that speak to the curious.</div>
+    <h1>韓国発「飲む美容習慣」を、<br><em>サロンの店販へ。</em></h1>
+    <p class="hero-lead">
+      腸活、インナーケア、韓国美容に関心の高いお客様へ。<br>
+      もう一つ、内側に届く店販を持ちませんか。<br>
+      パウチ1個から始められて、サロンで自然に会話が生まれる、<br>
+      29年現役の美容師がイタリア・プーリアから直輸入した、<br>
+      飲む美容液としてのエクストラバージンオリーブオイル。
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">Coratina 100%</span>
+      <span class="hero-tag">Cold Pressed</span>
+      <span class="hero-tag">Single Farm</span>
+      <span class="hero-tag">Polyphenols 629.9 mg/kg</span>
+    </div>
+    <div class="preorder-banner reveal">
+      <div class="preorder-mark">Pre-order — FY2027</div>
+      <div class="preorder-text">
+        <strong>2027年 1月末 予約締切 ／ 6月 入荷</strong>
+        <span>年に一度、収穫直後のロットだけを予約販売。パウチ1セット(30袋入)・ボトル1本から発注可能、最小ロットなし。</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <img src="chioma-lp-images/hero-campaign.jpg" alt="CHIOMA — 内側から輝く美しさ">
+    </div>
+  </div>
+</section>
+
+<section class="trend">
+  <div class="container-narrow">
+    <span class="section-num reveal">01 — Market trend</span>
+    <h2 class="section-title reveal">韓国で広がる<em>オレショット</em>が、<br>日本の美容市場へ。</h2>
+    <p class="trend-intro reveal">
+      朝の空腹時に、エクストラバージンオリーブオイル約10mlとレモン果汁を合わせて飲む——「<em>オレショット</em>」と呼ばれる美容習慣が、韓国SNS、アイドル、女優、オリーブヤングを起点に広がっています。日本でも韓国美容・腸活・インナーケアへの関心は高まり続けており、感度の高い顧客層が、すでに次の習慣を探し始めています。
+    </p>
+    <div class="section-visual short reveal">
+      <img src="chioma-lp-images/morning-ritual.png" alt="朝のオレショット習慣 — 空腹時にEVOOをショットで飲む">
+    </div>
+    <div class="trend-stats reveal">
+      <div class="trend-stat">
+        <div class="num">×7</div>
+        <div class="label">韓国オリーブヤング<br>「オリーブオイル」検索増加</div>
+      </div>
+      <div class="trend-stat">
+        <div class="num">+109%</div>
+        <div class="label">韓国オリーブオイル市場<br>前年比成長</div>
+      </div>
+      <div class="trend-stat">
+        <div class="num">+2,479%</div>
+        <div class="label">同期間<br>「レモン果汁」検索増加</div>
+      </div>
+    </div>
+    <p class="trend-source">Source: Korea NPS, Olive Young, SNS social listening (2024–2026)</p>
+  </div>
+</section>
+
+<section class="opportunity">
+  <div class="container-narrow">
+    <span class="section-num reveal">02 — Salon opportunity</span>
+    <h2 class="section-title reveal">「知っているサロン」が、<br><em>先に動ける。</em></h2>
+
+    <div class="section-visual reveal">
+      <img src="chioma-lp-images/salon-chat.png" alt="サロンでの自然な会話">
+    </div>
+    <blockquote class="opportunity-quote reveal">
+      「韓国で流行ってる朝の美容習慣、<br>知ってましたか？」
+      <em>The most natural conversation starter.</em>
+    </blockquote>
+
+    <div class="opportunity-body">
+      <p class="reveal">
+        サロンは、髪だけでなく、肌・頭皮・食事・暮らしの相談が自然に生まれる場所です。シャンプー店販は <em>常にネット価格と比較</em> されますが、韓国発の新しい美容習慣を体験させるパウチは、まったく違う土俵で会話が始まります。
+      </p>
+      <p class="reveal">
+        CHIOMAの<em>10mlパウチ</em>は、1回分のオレショットをそのまま試せる体験ツールです。サロンが「会話のきっかけ」として渡すことで、お客様は <em>新しい習慣の入り口</em> をサロンで知ることになる。気に入った方には500mlボトルを予約販売へ——棚スペースも在庫リスクも抱えず、自然に客単価が積み上がっていきます。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container-narrow">
+    <span class="section-num reveal">03 — The 4-step play</span>
+    <h2 class="section-title reveal">在庫を抱えず、<br><em>1個から</em>始められる。</h2>
+
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <span class="process-num">i. Sample</span>
+        <h3>パウチで体験してもらう</h3>
+        <p>来店時に「韓国で流行ってるオレショット、ご存知ですか？」とパウチを1個渡す。施術中に味と提案を試してもらう、自然なコミュニケーション。</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">ii. Receive</span>
+        <h3>サロンで予約を受ける</h3>
+        <p>気に入ったお客様から、その場で予約を受付け。「年に一度しか入らない、収穫直後の新油です」と伝えるだけで、価値の希少性が伝わります。</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">iii. Order</span>
+        <h3>必要数だけ発注する</h3>
+        <p>毎年1月末の予約締切までに、お客様の予約分をまとめて山村へ発注。<em style="font-style: normal; color: var(--accent); font-weight: 400;">在庫リスクゼロ</em>、廃棄リスクゼロ。</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">iv. Deliver</span>
+        <h3>6月、お客様に届ける</h3>
+        <p>6月、イタリアから届いた新油をサロン経由でお客様へ。「年に一度の特別なお届け」として、サロンとお客様の関係が一段深まります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lineup-section">
+  <div class="container">
+    <span class="section-num reveal">04 — The lineup</span>
+    <h2 class="section-title reveal">シンプルな<em>2サイズ</em>。<br>体験と、習慣化。</h2>
+
+    <div class="lineup">
+      <div class="product-card reveal">
+        <div class="product-img-wrap product-img-contain">
+          <img src="chioma-lp-images/sachet.jpg" alt="CHIOMA Daily Ritual — 10mlパウチ">
+        </div>
+        <span class="product-badge">For experience</span>
+        <div class="product-kind">Pouch · 10ml × 30</div>
+        <div class="product-name">CHIOMA Daily Ritual</div>
+        <div class="product-en">10ml Pouch — 30 pcs</div>
+        <div class="product-price">¥6,500</div>
+        <div class="product-price-note">希望小売価格 (税別) ／ 1個あたり 約¥217</div>
+        <ul class="product-features">
+          <li>1回分10ml × 30個入</li>
+          <li>サロンでの体験配布・お試し提案に</li>
+          <li>お客様の朝の習慣のきっかけに</li>
+          <li>ギフトや業務用イベントにも</li>
+        </ul>
+      </div>
+
+      <div class="product-card featured reveal">
+        <div class="product-img-wrap product-img-contain">
+          <img src="chioma-lp-images/bottle1.png" alt="CHIOMA Coratina EVOO — 500mlボトル">
+        </div>
+        <span class="product-badge">For routine</span>
+        <div class="product-kind">Bottle · 500ml</div>
+        <div class="product-name">CHIOMA Coratina EVOO</div>
+        <div class="product-en">500ml Single Origin Bottle</div>
+        <div class="product-price">¥7,700</div>
+        <div class="product-price-note">希望小売価格 (税別) ／ 10mlあたり 約¥154</div>
+        <ul class="product-features">
+          <li>500ml × 1本／ギフトボックス入</li>
+          <li>毎日続けたい方へ、習慣化サイズ</li>
+          <li>料理の仕上げにも</li>
+          <li>ギフト・自宅用の中心商品</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="lineup-note reveal">
+      まずパウチで体験、続けたい方へボトル。シンプルな2段階の販売設計です。
+    </p>
+  </div>
+</section>
+
+<section class="evidence">
+  <div class="container-narrow">
+    <span class="section-num reveal">05 — The numbers behind the taste</span>
+    <h2 class="section-title reveal">EU健康強調表示基準を、<br><em>2倍超でクリア。</em></h2>
+
+    <div class="section-visual short reveal">
+      <img src="chioma-lp-images/harvest.jpg" alt="コラティーナ — プーリア産オリーブの収穫">
+    </div>
+    <p class="evidence-intro reveal">
+      EUでは、オリーブオイルに対して「ポリフェノールが血中脂質を酸化ストレスから保護する」と表示できる科学的基準（Regulation 432/2012）が定められています。基準値はヒドロキシチロソール+誘導体で 250 mg/kg 以上。CHIOMA はこれを <em style="font-style: normal; color: var(--ink); font-weight: 400;">2倍超</em> でクリアします。
+    </p>
+
+    <div class="spec-grid">
+      <div class="spec-card highlight reveal">
+        <div class="spec-label">Total polyphenols</div>
+        <div class="spec-value">629.9<span class="spec-unit">mg/kg</span></div>
+        <p class="spec-desc">総ポリフェノール量。プレミアム高ポリフェノールEVOO域。一般的なEVOOの2〜6倍。</p>
+      </div>
+      <div class="spec-card reveal">
+        <div class="spec-label">Oleocanthal</div>
+        <div class="spec-value">212.9<span class="spec-unit">mg/kg</span></div>
+        <p class="spec-desc">抗炎症成分。イブプロフェンと同様の作用機序を持つ天然成分として研究が進む。</p>
+      </div>
+      <div class="spec-card reveal">
+        <div class="spec-label">Oleacein</div>
+        <div class="spec-value">210.4<span class="spec-unit">mg/kg</span></div>
+        <p class="spec-desc">抗酸化成分。糖化(AGEs)抑制・肌の老化対策の文脈で注目される。</p>
+      </div>
+      <div class="spec-card reveal">
+        <div class="spec-label">Acidity</div>
+        <div class="spec-value">0.22<span class="spec-unit">%</span></div>
+        <p class="spec-desc">遊離脂肪酸量。EVOO 規格上限 0.80% の <em style="font-style: normal; color: var(--accent);">1/4以下</em>。最高品質クラス。</p>
+      </div>
+    </div>
+
+    <div class="spec-cert reveal">
+      <div class="spec-cert-label">Certification</div>
+      <p class="spec-cert-body">
+        分析は国際オリーブ理事会 (International Olive Council) 認定の Chimia S.r.l. が UNI CEI EN ISO/IEC 17025 規格に基づいて実施。Rapporto di prova n.1040/26。全ロットで分析報告書を商品に同梱し、サロンが顧客に「機能の根拠」として提示できる体制を整えています。
+      </p>
+    </div>
+
+    <p class="food-disclaimer reveal">
+      ※ CHIOMAは食品です。特定の疾病の予防・治療を目的とせず、効能・効果を標榜するものではありません。サロンでの提案は、食習慣としての一般的なご紹介をお願いします。
+    </p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container-narrow">
+    <span class="section-num reveal">06 — A letter from the importer</span>
+    <h2 class="section-title reveal">29年、髪に触れてきて<br>気づいたこと。</h2>
+
+    <blockquote class="story-quote reveal">
+      「外から塗るより、<br>内側を整える方が、ずっと早かった。」
+    </blockquote>
+
+    <div class="story-split">
+      <div class="story-body">
+      <p class="reveal">
+        美容師として29年。たくさんの薬剤と、たくさんのお客様の髪に触れてきました。ある時期から、トリートメントを重ねるより、お客様の食生活や腸内環境の話をする時間の方が、結果につながると気づきました。
+      </p>
+      <p class="reveal">
+        髪も肌も、結局のところ、内側から作られている。サロンでできることには限界がある——その壁にぶつかって、栄養学や糖化のメカニズムを独学で学び、たどり着いたのが、南イタリア・プーリアの極めて高いポリフェノールを持つコラティーナでした。
+      </p>
+      <p class="reveal">
+        農園主のTizianaさんと信頼関係を築き、自分のサロン COMMON で先にお客様に試してもらいました。お客様の反応は、想像以上でした。だからこそ、同じ思想で営業されている全国のサロンオーナーの方に、卸売としてお届けする決断をしました。
+      </p>
+      <p class="reveal">
+        商品の説明書きではなく、「美容師から美容師へ」直接届ける、本物の輸入ルートです。
+      </p>
+      <p class="story-sig reveal">— Takeshi Yamamura</p>
+      <p class="story-sig-sub reveal">山村剛司 / 合同会社コモンセンス代表 / COMMON 大分</p>
+      </div>
+      <div class="story-portrait reveal">
+        <img src="chioma-lp-images/owner.jpg" alt="山村剛司 — COMMON 大分 / CHIOMAインポーター">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="terms-section">
+  <div class="container-narrow">
+    <span class="section-num reveal">07 — Wholesale terms</span>
+    <h2 class="section-title reveal">在庫を抱えず、<br><em>1セット・1本から</em>始められる。</h2>
+    <p class="reveal" style="font-size: 16px; line-height: 2; color: var(--ink-soft); margin-bottom: 0;">
+      CHIOMA は <em style="font-style: normal; color: var(--ink); font-weight: 400;">年に一度の予約販売制</em> を採用しています。コラティーナは11〜12月に収穫、1月に搾油された <em style="font-style: normal; color: var(--ink); font-weight: 400;">最高鮮度のロットのみ</em> を仕入れるため、<em style="font-style: normal; color: var(--ink); border-bottom: 1px solid var(--accent-soft); padding-bottom: 1px;">2027年1月末で予約締切、6月に一括入荷</em>します。サロン側は在庫リスクゼロ・パウチ1セット(30袋入)/ボトル1本から発注可能。「お客様に予約をいただいてから仕入れる」という売り方も成立します。
+    </p>
+
+    <table class="terms-table">
+      <tr>
+        <th>商品ラインアップ</th>
+        <td>
+          パウチ 10ml × 30個<span class="sub">希望小売 ¥6,500（税別）／ 体験・配布用</span>
+          <br><br>
+          ボトル 500ml<span class="sub">希望小売 ¥7,700（税別）／ 習慣化・ギフト用</span>
+        </td>
+      </tr>
+      <tr>
+        <th>サロン仕入価格</th>
+        <td>資料請求にて開示<span class="sub">サロン粗利率 約30% を確保する設計</span></td>
+      </tr>
+      <tr>
+        <th>販売方式</th>
+        <td><strong style="font-weight: 500;">年に一度の予約販売制</strong><span class="sub">単一農園・収穫量限定・最高鮮度ロット限定</span></td>
+      </tr>
+      <tr>
+        <th>発注単位</th>
+        <td>パウチ1セット(30袋入)／ボトル1本から<span class="sub">最小ロットなし。在庫を抱える必要がありません</span></td>
+      </tr>
+      <tr>
+        <th>支払条件</th>
+        <td>納品後30日締め翌月末払い</td>
+      </tr>
+      <tr>
+        <th>予約締切</th>
+        <td>2027年 1月末<span class="sub">以後、毎年1月末締切。コラティーナ搾油直後のロットを確保</span></td>
+      </tr>
+      <tr>
+        <th>入荷・発送</th>
+        <td>2027年 6月<span class="sub">予約締切後、イタリアから一括輸入・サロンへ発送</span></td>
+      </tr>
+      <tr>
+        <th>同梱資料</th>
+        <td>全ロット分析報告書／農園パンフレット／顧客説明用カード</td>
+      </tr>
+    </table>
+
+    <div class="price-locked reveal">
+      <em>サロン仕入価格・FY2027 予約申込フォーム・販売スタートキットは、資料請求された方にのみご案内しています。</em><br>
+      お客様への提案文例、店頭ポップ素材、農園のストーリーパンフレット、Chimia分析報告書、SNS用画像セットを含む「導入パッケージ」を、無料でお送りします。
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="container-narrow">
+    <span class="section-num">08 — Get the materials</span>
+    <h2 class="section-title">資料請求 &amp;<em> サンプル請求</em></h2>
+    <p class="cta-lead">
+      サロン仕入価格、FY2027 予約スケジュール、お客様への提案文例、店頭ポップ素材、Chimia分析報告書を、PDF形式でお送りします。<br>
+      <em style="font-style: normal; color: var(--highlight);">パウチサンプル（無料）の郵送もこちらから承ります。</em> 営業の電話は一切いたしません。
+    </p>
+
+    <form class="form" id="lead-form">
+      <div class="form-row">
+        <label>ご希望の内容（複数選択可）</label>
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" name="request_type" value="materials" checked>
+            <span class="checkbox-mark"></span>
+            <span class="checkbox-text">
+              <strong>資料一式（PDF）</strong>
+              <small>仕入価格・予約スケジュール・提案文例・分析報告書</small>
+            </span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="request_type" value="sample">
+            <span class="checkbox-mark"></span>
+            <span class="checkbox-text">
+              <strong>パウチサンプル（無料・郵送）</strong>
+              <small>10mlパウチを、ご住所までお送りします</small>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="salon">サロン名</label>
+        <input type="text" id="salon" name="salon" placeholder="例：COMMON" required>
+      </div>
+      <div class="form-row">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" placeholder="例：山村 剛司" required>
+      </div>
+      <div class="form-row">
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" placeholder="your@salon.com" required>
+      </div>
+      <div class="form-row">
+        <label for="pref">都道府県</label>
+        <select id="pref" name="pref" required>
+          <option value="">選択してください</option>
+          <option value="北海道">北海道</option><option value="青森県">青森県</option><option value="岩手県">岩手県</option><option value="宮城県">宮城県</option><option value="秋田県">秋田県</option><option value="山形県">山形県</option><option value="福島県">福島県</option><option value="茨城県">茨城県</option><option value="栃木県">栃木県</option><option value="群馬県">群馬県</option><option value="埼玉県">埼玉県</option><option value="千葉県">千葉県</option><option value="東京都">東京都</option><option value="神奈川県">神奈川県</option><option value="新潟県">新潟県</option><option value="富山県">富山県</option><option value="石川県">石川県</option><option value="福井県">福井県</option><option value="山梨県">山梨県</option><option value="長野県">長野県</option><option value="岐阜県">岐阜県</option><option value="静岡県">静岡県</option><option value="愛知県">愛知県</option><option value="三重県">三重県</option><option value="滋賀県">滋賀県</option><option value="京都府">京都府</option><option value="大阪府">大阪府</option><option value="兵庫県">兵庫県</option><option value="奈良県">奈良県</option><option value="和歌山県">和歌山県</option><option value="鳥取県">鳥取県</option><option value="島根県">島根県</option><option value="岡山県">岡山県</option><option value="広島県">広島県</option><option value="山口県">山口県</option><option value="徳島県">徳島県</option><option value="香川県">香川県</option><option value="愛媛県">愛媛県</option><option value="高知県">高知県</option><option value="福岡県">福岡県</option><option value="佐賀県">佐賀県</option><option value="長崎県">長崎県</option><option value="熊本県">熊本県</option><option value="大分県">大分県</option><option value="宮崎県">宮崎県</option><option value="鹿児島県">鹿児島県</option><option value="沖縄県">沖縄県</option>
+        </select>
+      </div>
+      <div class="form-row form-row-address" id="address-row">
+        <label for="address">送付先ご住所 <span style="text-transform: none; letter-spacing: 0; font-style: italic; opacity: 0.7;">(サンプル請求の方のみ)</span></label>
+        <input type="text" id="address" name="address" placeholder="郵便番号・住所をご記入ください">
+      </div>
+      <button type="submit" class="form-submit">送信する</button>
+      <p class="form-note">
+        資料PDFはメールでお送りします。サンプルは郵送（無料）でお届けします。<br>
+        個人情報は本サービスのご案内以外には使用いたしません。
+      </p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>
+      <div class="footer-brand">CHIOMA</div>
+      <div class="footer-info" style="margin-top: 12px;">
+        Imported by 合同会社コモンセンス<br>
+        〒870-0023 大分県大分市長浜町 2-13-51<br>
+        TEL/FAX 097-529-7430
+      </div>
+    </div>
+    <div class="footer-info" style="text-align: right;">
+      © 2026 CHIOMA / Common Sense LLC.<br>
+      Coratina EVOO imported from<br>
+      Azienda Agricola Tedone Tiziana, Corato, Puglia, Italy<br>
+      ※ 食品です。医薬品ではありません。
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Toggle address field based on sample checkbox
+const sampleCheckbox = document.querySelector('input[name="request_type"][value="sample"]');
+const addressRow = document.getElementById('address-row');
+const addressInput = document.getElementById('address');
+
+function updateAddressVisibility() {
+  if (sampleCheckbox.checked) {
+    addressRow.classList.add('show');
+    addressInput.setAttribute('required', 'required');
+  } else {
+    addressRow.classList.remove('show');
+    addressInput.removeAttribute('required');
+  }
+}
+sampleCheckbox.addEventListener('change', updateAddressVisibility);
+updateAddressVisibility();
+
+// Form submit
+document.getElementById('lead-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const checked = Array.from(document.querySelectorAll('input[name="request_type"]:checked')).map(c => c.value);
+  if (checked.length === 0) {
+    alert('ご希望の内容（資料 / サンプル）を1つ以上お選びください。');
+    return;
+  }
+  const data = {
+    request_type: checked,
+    salon: document.getElementById('salon').value,
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    pref: document.getElementById('pref').value,
+    address: document.getElementById('address').value,
+  };
+  console.log('Form submitted:', data);
+  const requestText = [];
+  if (checked.includes('materials')) requestText.push('資料PDF（メールにて）');
+  if (checked.includes('sample')) requestText.push('パウチサンプル1袋（郵送にて）');
+  alert('ご請求を受け付けました。\n\n■ お送りする内容\n・' + requestText.join('\n・') + '\n\n（※ このフォームはデモ用です。本番ではFormspreeやTally等と連携してください）');
+});
+</script>
+
+</body>
+</html>
