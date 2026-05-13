@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHIOMA — Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f1ebd9;
+    --paper-2:#e8e0c8;
+    --ink:#1a1612;
+    --ink-2:#3d342a;
+    --rule:#1a1612;
+    --terra:#a8401e;
+    --olive:#4a5a2a;
+    --gold:#b08940;
+    --max:1320px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
+  body{
+    font-family:"Noto Serif JP", "Cormorant Garamond", serif;
+    font-weight:400;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.025), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(0,0,0,0.03), transparent 50%);
+  }
+  /* paper grain */
+  body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity:.55;mix-blend-mode:multiply;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--terra);color:var(--paper)}
+
+  .display{font-family:"Cormorant Garamond", serif;font-weight:500;letter-spacing:-0.01em}
+  .display-it{font-family:"Cormorant Garamond", serif;font-weight:500;font-style:italic;letter-spacing:-0.01em}
+  .jp-serif{font-family:"Noto Serif JP", serif}
+  .mono{font-family:"DM Mono", monospace;letter-spacing:0.04em;text-transform:uppercase;font-size:11px}
+
+  /* === Top masthead bar === */
+  .masthead{
+    position:relative;z-index:5;
+    border-bottom:1px solid var(--rule);
+    background:var(--paper);
+  }
+  .masthead-inner{
+    max-width:var(--max);margin:0 auto;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:14px 36px;gap:24px;
+  }
+  .mh-left,.mh-right{display:flex;gap:20px;align-items:center}
+  .mh-right{justify-content:flex-end}
+  .mh-mark{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:14px}
+  .mh-cta{
+    font-family:"DM Mono", monospace;text-transform:uppercase;font-size:10.5px;
+    letter-spacing:.15em;
+    border:1px solid var(--ink);border-radius:999px;
+    padding:7px 14px;background:transparent;
+    transition:.2s;
+  }
+  .mh-cta:hover{background:var(--ink);color:var(--paper)}
+  .mh-logo{
+    font-family:"Cormorant Garamond", serif;font-weight:500;
+    font-size:26px;letter-spacing:.32em;text-align:center;
+  }
+  .mh-logo b{font-weight:500}
+  .mh-issue{font-family:"DM Mono",monospace;text-transform:uppercase;font-size:10px;letter-spacing:.2em;opacity:.7}
+
+  .nav-row{
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    background:var(--paper);
+  }
+  .nav-inner{
+    max-width:var(--max);margin:0 auto;
+    display:flex;gap:36px;justify-content:center;align-items:center;
+    padding:11px 36px;
+    font-family:"DM Mono", monospace;
+    text-transform:uppercase;font-size:11px;letter-spacing:.22em;
+  }
+  .nav-inner a{position:relative;padding:4px 0}
+  .nav-inner a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:.3s}
+  .nav-inner a:hover::after{transform:scaleX(1)}
+  .nav-num{display:inline-block;color:var(--terra);margin-right:6px;font-weight:500}
+
+  /* === Hero === */
+  .hero{
+    position:relative;z-index:2;
+    max-width:var(--max);margin:0 auto;
+    padding:48px 36px 72px;
+    display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:end;
+  }
+  .hero-eye{
+    display:flex;align-items:center;gap:14px;margin-bottom:28px;
+  }
+  .hero-eye .pill{
+    background:var(--ink);color:var(--paper);
+    font-family:"DM Mono", monospace;font-size:10px;letter-spacing:.22em;
+    padding:5px 11px;border-radius:999px;text-transform:uppercase;
+  }
+  .hero-eye .meta{font-family:"DM Mono", monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2)}
+  .hero h1{
+    margin:0;
+    font-family:"Noto Serif JP", serif;
+    font-weight:500;
+    font-size:clamp(44px, 6.4vw, 92px);
+    line-height:1.06;letter-spacing:-0.015em;
+  }
+  .hero h1 em{
+    font-family:"Cormorant Garamond", serif;font-style:italic;font-weight:500;
+    color:var(--terra);
+    font-size:1.05em;
+    display:inline-block;
+    line-height:1;
+  }
+  .hero-lede{
+    margin:32px 0 0;
+    font-size:16.5px;line-height:1.85;color:var(--ink-2);
+    max-width:46ch;
+  }
+  .hero-cta-row{
+    margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 22px;border-radius:999px;
+    font-family:"DM Mono", monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    transition:transform .25s, background .25s, color .25s;
+    border:1px solid var(--ink);
+  }
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--terra);border-color:var(--terra);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn .arrow{font-family:serif;font-size:14px;transform:translateY(-1px)}
+
+  .hero-foot{
+    margin-top:36px;
+    padding-top:18px;border-top:1px solid rgba(26,22,18,.25);
+    display:flex;gap:36px;flex-wrap:wrap;
+    font-family:"DM Mono", monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-2);
+  }
+
+  .hero-art{
+    position:relative;
+    aspect-ratio: 4/5;
+    border-radius:2px;
+    overflow:hidden;
+    background:var(--ink);
+  }
+  .hero-art img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(.95)}
+  .hero-art::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 30% 30%, transparent 50%, rgba(0,0,0,.35) 100%);
+    pointer-events:none;
+  }
+  .hero-fig{
+    position:absolute;left:18px;bottom:14px;
+    font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--paper);
+    background:rgba(0,0,0,.35);backdrop-filter:blur(4px);
+    padding:6px 10px;border-radius:2px;
+  }
+  .hero-stamp{
+    position:absolute;right:18px;top:18px;
+    width:108px;height:108px;border-radius:999px;
+    border:1px solid var(--paper);color:var(--paper);
+    display:grid;place-items:center;text-align:center;
+    font-family:"Cormorant Garamond", serif;font-style:italic;font-size:14px;line-height:1.2;
+    background:rgba(168,64,30,.85);
+    transform:rotate(-8deg);
+    animation:spin 28s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(352deg)}}
+  .hero-stamp span{display:block;font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;margin-top:4px;font-style:normal}
+
+  /* === Marquee strip === */
+  .marquee{
+    position:relative;z-index:2;
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    background:var(--ink);color:var(--paper);
+    overflow:hidden;
+  }
+  .marquee-track{
+    display:flex;gap:48px;
+    padding:14px 0;
+    animation:marq 40s linear infinite;
+    white-space:nowrap;
+    font-family:"Cormorant Garamond", serif;font-style:italic;font-size:22px;
+  }
+  .marquee-track span.dot{color:var(--terra);font-style:normal}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* === Section structure === */
+  section.spread{
+    position:relative;z-index:2;
+    max-width:var(--max);margin:0 auto;
+    padding:96px 36px;
+  }
+  .section-head{
+    display:grid;grid-template-columns:120px 1fr;gap:48px;align-items:start;
+    margin-bottom:56px;
+    padding-bottom:24px;
+    border-bottom:1px solid var(--rule);
+  }
+  .section-num{font-family:"DM Mono", monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+  .section-num b{display:block;font-family:"Cormorant Garamond", serif;font-style:italic;font-size:48px;font-weight:500;color:var(--terra);margin-top:8px;line-height:1}
+  .section-kicker{font-family:"DM Mono", monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2);margin-bottom:14px}
+  .section-title{
+    font-family:"Noto Serif JP", serif;font-weight:500;
+    font-size:clamp(34px, 4.4vw, 64px);
+    line-height:1.18;letter-spacing:-0.01em;margin:0;
+    text-wrap:pretty;
+  }
+  .section-title em{font-family:"Cormorant Garamond", serif;font-style:italic;color:var(--terra);font-weight:500}
+
+  /* === TREND === */
+  .trend-grid{
+    display:grid;grid-template-columns:1.2fr 1fr;gap:64px;
+  }
+  .trend-body p{font-size:16.5px;line-height:1.95;color:var(--ink-2);margin:0 0 18px}
+  .trend-body p:first-of-type::first-letter{
+    font-family:"Cormorant Garamond", serif;font-style:italic;font-size:64px;
+    float:left;line-height:.9;padding:8px 12px 0 0;color:var(--terra);font-weight:500;
+  }
+  .stat-stack{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule);margin-top:8px}
+  .stat-row{
+    display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:baseline;
+    padding:22px 0;border-bottom:1px solid var(--rule);
+  }
+  .stat-num{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:64px;line-height:.9;color:var(--ink);letter-spacing:-.02em}
+  .stat-num em{font-style:normal;font-family:"DM Mono",monospace;font-size:14px;color:var(--terra);letter-spacing:.05em;margin-left:6px;vertical-align:top}
+  .stat-cap{font-size:13px;color:var(--ink-2);line-height:1.55;font-family:"Noto Serif JP",serif}
+
+  .trend-art{
+    margin-top:64px;
+    display:grid;grid-template-columns:1fr 1.4fr;gap:32px;
+  }
+  .figure{position:relative}
+  .figure img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:2px}
+  .figure.tall img{aspect-ratio:3/4}
+  .figure.wide img{aspect-ratio:5/4}
+  .figcap{
+    margin-top:10px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);
+    display:flex;justify-content:space-between;
+  }
+  .figcap em{font-style:italic;font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:.02em;text-transform:none;color:var(--ink-2)}
+
+  /* === Salon opportunity === */
+  .salon{
+    background:var(--paper-2);
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    margin-top:36px;
+  }
+  .salon .section-head{border-color:var(--ink)}
+  .salon-grid{
+    display:grid;grid-template-columns:1.5fr 1fr;gap:64px;align-items:start;
+  }
+  .salon-body p{font-size:16.5px;line-height:1.9;color:var(--ink-2);max-width:46ch}
+  .salon-quote{
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;
+    font-size:32px;line-height:1.3;color:var(--ink);margin-top:32px;
+    border-left:2px solid var(--terra);padding-left:20px;
+  }
+  .salon-quote .jp{display:block;font-family:"Noto Serif JP", serif;font-style:normal;font-size:18px;color:var(--ink-2);margin-top:14px;line-height:1.7}
+
+  /* === Process steps === */
+  .process{
+    margin-top:96px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  }
+  .step{
+    padding:28px 22px 32px;
+    border-right:1px solid var(--rule);
+    position:relative;
+    background:var(--paper);
+    transition:background .3s;
+  }
+  .step:last-child{border-right:0}
+  .step:hover{background:var(--paper-2)}
+  .step-num{
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;
+    font-size:56px;line-height:1;color:var(--terra);
+    margin-bottom:14px;
+  }
+  .step-title{font-family:"Noto Serif JP",serif;font-weight:500;font-size:18px;margin:0 0 10px}
+  .step-cap{font-size:13.5px;color:var(--ink-2);line-height:1.7;margin:0}
+
+  /* === PRODUCT === */
+  .product-spread{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;
+  }
+  .product-photo{
+    aspect-ratio:3/4;background:var(--ink);position:relative;overflow:hidden;
+  }
+  .product-photo img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05)}
+  .product-photo .tag{
+    position:absolute;left:18px;top:18px;
+    background:var(--paper);color:var(--ink);
+    font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    padding:5px 10px;border-radius:2px;
+  }
+  .product-spec{display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+  .spec{
+    display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline;
+    padding:18px 0;border-bottom:1px solid var(--rule);
+  }
+  .spec-k{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
+  .spec-v{font-family:"Noto Serif JP",serif;font-size:17px;font-weight:500;color:var(--ink);line-height:1.5}
+  .spec-v em{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;color:var(--terra);font-size:1.05em;margin-right:6px}
+
+  .origin-note{
+    margin-top:32px;font-size:15px;line-height:1.9;color:var(--ink-2);
+    border-top:1px solid var(--rule);padding-top:24px;
+  }
+  .origin-note b{font-weight:500;color:var(--ink)}
+
+  .triptych{
+    margin-top:96px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;
+  }
+  .triptych img{aspect-ratio:3/4;object-fit:cover;width:100%;border-radius:2px}
+
+  /* === EVIDENCE === */
+  .evidence{
+    background:var(--ink);color:var(--paper);
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    margin-top:0;
+  }
+  .evidence .section-head{border-color:var(--paper)}
+  .evidence .section-num,.evidence .section-kicker{color:rgba(241,235,217,.7)}
+  .evidence .section-num b{color:var(--gold)}
+  .evidence .section-title em{color:var(--gold)}
+  .ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(241,235,217,.25)}
+  .ev{
+    padding:36px 28px;
+    border-right:1px solid rgba(241,235,217,.25);
+    border-bottom:1px solid rgba(241,235,217,.25);
+  }
+  .ev:last-child{border-right:0}
+  .ev-num{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:48px;line-height:1;color:var(--gold);margin-bottom:14px}
+  .ev h3{font-family:"Noto Serif JP",serif;font-weight:500;font-size:22px;margin:0 0 14px;line-height:1.4;color:var(--paper)}
+  .ev p{font-size:14.5px;line-height:1.8;color:rgba(241,235,217,.75);margin:0}
+  .disclaimer{
+    margin-top:36px;
+    font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(241,235,217,.55);text-align:center;
+    padding-top:24px;border-top:1px solid rgba(241,235,217,.25);
+  }
+
+  /* === USE === */
+  .use-spread{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .use-card{
+    padding:36px 28px;
+    border:1px solid var(--rule);
+    background:var(--paper);
+    aspect-ratio:5/4;
+    display:flex;flex-direction:column;justify-content:space-between;
+    transition:background .3s;
+  }
+  .use-card:hover{background:var(--paper-2)}
+  .use-card .topline{display:flex;align-items:center;gap:12px}
+  .use-card .num{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:48px;line-height:1;color:var(--terra)}
+  .use-card .label{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2)}
+  .use-card h3{font-family:"Noto Serif JP",serif;font-weight:500;font-size:26px;margin:14px 0 0;line-height:1.35}
+  .use-card p{font-size:14.5px;line-height:1.85;color:var(--ink-2);margin:18px 0 0}
+  .use-imagery{
+    margin-top:36px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  }
+  .use-imagery img{aspect-ratio:3/4;object-fit:cover;width:100%}
+
+  /* === PRICING === */
+  .pricing{
+    background:var(--paper-2);
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  }
+  .price-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .price-card{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    padding:28px;
+    display:flex;flex-direction:column;
+    position:relative;
+    transition:transform .3s, box-shadow .3s;
+  }
+  .price-card:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--ink)}
+  .price-card .visual{
+    aspect-ratio:1/1;background:var(--paper-2);
+    margin:-28px -28px 24px;border-bottom:1px solid var(--rule);
+    overflow:hidden;display:grid;place-items:center;
+  }
+  .price-card .visual img{width:80%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+  .price-cat{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
+  .price-card h3{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:32px;margin:0 0 24px;line-height:1.1;letter-spacing:-.01em}
+  .price-amt{font-family:"Noto Serif JP",serif;font-weight:500;font-size:48px;line-height:1;letter-spacing:-.02em}
+  .price-amt small{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:400;color:var(--ink-2);display:block;margin-top:8px}
+  .price-sub{margin-top:14px;font-size:13.5px;color:var(--ink-2);line-height:1.6;font-family:"Noto Serif JP",serif}
+  .price-feat{
+    margin-top:24px;padding-top:18px;border-top:1px solid var(--rule);
+    list-style:none;padding-left:0;display:flex;flex-direction:column;gap:10px;
+    font-size:13.5px;color:var(--ink-2);font-family:"Noto Serif JP",serif;
+  }
+  .price-feat li{display:grid;grid-template-columns:18px 1fr;gap:8px;line-height:1.6}
+  .price-feat li::before{content:"—";font-family:"DM Mono",monospace;color:var(--terra)}
+
+  .price-meta{
+    margin-top:48px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  }
+  .price-meta-item{padding:24px;border-right:1px solid var(--rule)}
+  .price-meta-item:last-child{border-right:0}
+  .price-meta-item .k{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px}
+  .price-meta-item .v{font-family:"Noto Serif JP",serif;font-weight:500;font-size:15.5px;line-height:1.5}
+
+  /* === FAQ === */
+  .faq-list{display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+  .faq-item{
+    border-bottom:1px solid var(--rule);
+    display:grid;grid-template-columns:60px 1fr;
+    align-items:start;
+    padding:0;
+  }
+  .faq-num{padding:24px 0 24px 8px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.22em;color:var(--terra)}
+  .faq-body{padding:24px 0}
+  .faq-body summary{
+    list-style:none;cursor:pointer;
+    font-family:"Noto Serif JP",serif;font-weight:500;font-size:21px;line-height:1.5;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;
+  }
+  .faq-body summary::-webkit-details-marker{display:none}
+  .faq-body summary::after{content:"+";font-family:"Cormorant Garamond",serif;font-style:italic;font-size:36px;color:var(--terra);transition:.3s}
+  details[open] .faq-body summary::after{content:"–"}
+  .faq-body p{margin:18px 0 0;color:var(--ink-2);font-size:15.5px;line-height:1.9}
+
+  /* === CTA Final === */
+  .final{
+    background:var(--terra);color:var(--paper);
+    border-top:1px solid var(--rule);
+    text-align:center;
+    padding:120px 36px;
+    position:relative;
+    overflow:hidden;
+  }
+  .final::before{
+    content:"CHIOMA · CORATINA · PUGLIA · CHIOMA · CORATINA · PUGLIA · ";
+    position:absolute;top:24px;left:0;right:0;
+    white-space:nowrap;
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;
+    color:rgba(241,235,217,.18);
+    animation:marq 60s linear infinite;
+  }
+  .final-kicker{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,235,217,.7);margin-bottom:24px}
+  .final h2{
+    font-family:"Noto Serif JP",serif;font-weight:500;
+    font-size:clamp(36px, 5vw, 72px);line-height:1.18;
+    margin:0 auto 36px;max-width:18ch;
+  }
+  .final h2 em{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--paper);font-weight:500}
+  .final-cta{
+    display:inline-flex;align-items:center;gap:14px;
+    background:var(--paper);color:var(--ink);
+    padding:18px 32px;border-radius:999px;
+    font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    transition:.25s;
+  }
+  .final-cta:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+  .final-sub{margin-top:24px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:18px;color:rgba(241,235,217,.85)}
+
+  /* === Footer === */
+  footer{
+    background:var(--ink);color:var(--paper);
+    padding:64px 36px 48px;
+    border-top:1px solid var(--rule);
+  }
+  .foot-inner{
+    max-width:var(--max);margin:0 auto;
+    display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;
+  }
+  .foot-logo{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:32px;letter-spacing:.32em}
+  .foot-tag{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:18px;margin-top:8px;color:rgba(241,235,217,.7)}
+  .foot-h{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(241,235,217,.55);margin-bottom:14px}
+  .foot-link{display:block;font-family:"Noto Serif JP",serif;font-size:14.5px;color:var(--paper);padding:4px 0;opacity:.85}
+  .foot-link:hover{opacity:1;color:var(--gold)}
+  .foot-bottom{
+    max-width:var(--max);margin:48px auto 0;padding-top:24px;
+    border-top:1px solid rgba(241,235,217,.2);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+    font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(241,235,217,.6);
+  }
+
+  @media (max-width: 900px){
+    .hero{grid-template-columns:1fr;padding:32px 22px 48px;gap:36px}
+    section.spread{padding:64px 22px}
+    .section-head{grid-template-columns:1fr;gap:18px}
+    .trend-grid,.salon-grid,.product-spread,.use-spread,.price-grid,.ev-grid{grid-template-columns:1fr}
+    .process,.use-imagery,.triptych,.price-meta{grid-template-columns:1fr 1fr}
+    .nav-inner{display:none}
+    .foot-inner{grid-template-columns:1fr}
+    .ev,.step,.price-meta-item{border-right:0;border-bottom:1px solid rgba(241,235,217,.25)}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========= MASTHEAD ========= -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="mh-left">
+      <span class="mh-mark">— Editoriale</span>
+      <span class="mh-issue">Vol.01 / 2026 Spring</span>
+    </div>
+    <div class="mh-logo"><b>CHIOMA</b></div>
+    <div class="mh-right">
+      <span class="mh-issue">Corato · Puglia · IT</span>
+      <a href="mailto:info@common-hairdesign.com" class="mh-cta">Sample &nbsp;↗</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-row">
+  <div class="nav-inner">
+    <a href="#trend"><span class="nav-num">01</span>Trend</a>
+    <a href="#salon"><span class="nav-num">02</span>Salon</a>
+    <a href="#product"><span class="nav-num">03</span>Product</a>
+    <a href="#evidence"><span class="nav-num">04</span>Evidence</a>
+    <a href="#use"><span class="nav-num">05</span>Use</a>
+    <a href="#pricing"><span class="nav-num">06</span>Price</a>
+    <a href="#faq"><span class="nav-num">07</span>FAQ</a>
+  </div>
+</nav>
+
+<!-- ========= HERO ========= -->
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <div class="hero-eye">
+      <span class="pill">Issue №01</span>
+      <span class="meta">Ole Shot Trend / Dealer &amp; Salon Proposal</span>
+    </div>
+    <h1>韓国発の<br>飲む美容習慣を、<br><em>サロンの</em><br>新しい店販へ。</h1>
+    <p class="hero-lede">
+      CHIOMAは、イタリア・プーリア州コラート産コラティーナ種100％のエクストラバージンオリーブオイル。朝のオレショット、腸活、インナーケアに関心の高いお客様へ、サロンから自然に提案できる食品店販です。
+    </p>
+    <div class="hero-cta-row">
+      <a href="mailto:info@common-hairdesign.com" class="btn btn-primary">無料サンプルを請求 <span class="arrow">→</span></a>
+      <a href="#pricing" class="btn btn-ghost">商品価格を見る <span class="arrow">↓</span></a>
+    </div>
+    <div class="hero-foot">
+      <span>Dealer / Salon</span>
+      <span>予約販売方式</span>
+      <span>食品 — 医薬品ではありません</span>
+    </div>
+  </div>
+  <div class="hero-art">
+    <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-hero-woman.jpg" alt="キッチンでほほえむ女性とCHIOMAのボトル">
+    <span class="hero-fig">Fig. 01 — Kitchen Ritual</span>
+    <div class="hero-stamp">
+      Ole<br>Shot<br>Ritual
+      <span>Since 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========= MARQUEE ========= -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Coratina 100%</span><span class="dot">·</span>
+    <span>Cold Pressed at 27°C</span><span class="dot">·</span>
+    <span>Polifenoli 400–600mg/kg</span><span class="dot">·</span>
+    <span>Acidità 0.2%</span><span class="dot">·</span>
+    <span>Direct from Tedone Farm</span><span class="dot">·</span>
+    <span>Coratina 100%</span><span class="dot">·</span>
+    <span>Cold Pressed at 27°C</span><span class="dot">·</span>
+    <span>Polifenoli 400–600mg/kg</span><span class="dot">·</span>
+    <span>Acidità 0.2%</span><span class="dot">·</span>
+    <span>Direct from Tedone Farm</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- ========= 01 TREND ========= -->
+<section class="spread" id="trend">
+  <div class="section-head">
+    <div class="section-num">Chapter<b>01</b></div>
+    <div>
+      <div class="section-kicker">Market Trend / Korea → Japan</div>
+      <h2 class="section-title">韓国で広がった<em>オレショット</em>が、<br>日本の美容市場へ。</h2>
+    </div>
+  </div>
+
+  <div class="trend-grid">
+    <div class="trend-body">
+      <p>オレショットは、朝の空腹時にエクストラバージンオリーブオイル約10mlとレモン果汁を合わせて飲む美容・健康習慣。韓国ではSNS、アイドル・女優の発信、ドラッグストア検索の増加をきっかけに「飲む美容ルーティン」として注目されています。</p>
+      <p>日本でも韓国美容、腸活、インナーケアへの関心は高まり続けています。サロンは髪だけでなく、肌・頭皮・食事・暮らしの相談が生まれる場所。CHIOMAは、その会話から自然に提案できる新しい店販商材です。</p>
+    </div>
+    <div class="stat-stack">
+      <div class="stat-row">
+        <div class="stat-num">7×<em>↑</em></div>
+        <div class="stat-cap">韓国オリーブヤングでの<br>「オリーブオイル」検索増加</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-num">+2,479%</div>
+        <div class="stat-cap">同期間の<br>「レモン果汁」検索増加</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-num">+109%</div>
+        <div class="stat-cap">韓国オリーブオイル市場の<br>前年比成長</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trend-art">
+    <div class="figure tall">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-harvest-hand.jpg" alt="手で搾られるオリーブとオリーブオイル">
+      <div class="figcap"><em>Fig. 02 — La raccolta</em><span>Corato, IT</span></div>
+    </div>
+    <div class="figure wide">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-salon-talk-1.jpg" alt="サロンで美容師とお客様が会話している様子">
+      <div class="figcap"><em>Fig. 03 — Salon dialogue</em><span>Oita, JP</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 02 SALON OPPORTUNITY ========= -->
+<section class="salon" id="salon">
+  <div class="spread" style="padding-top:96px;padding-bottom:0">
+    <div class="section-head">
+      <div class="section-num">Chapter<b>02</b></div>
+      <div>
+        <div class="section-kicker">Salon Opportunity</div>
+        <h2 class="section-title">「知っているサロン」が、<br><em>先に動ける。</em></h2>
+      </div>
+    </div>
+
+    <div class="salon-grid">
+      <div class="salon-body">
+        <p>オレショットの入り口として、CHIOMAの10mlパウチは1回分をそのまま試せる体験ツールです。「韓国で流行っている朝の美容習慣」と紹介できるため、食品店販が初めてのサロンでも会話をつくりやすくなります。</p>
+        <div class="salon-quote">
+          “Ten millilitri al mattino — un piccolo rito che inizia in salone.”
+          <span class="jp">10mlパウチで体験し、気に入った方へ500mlボトルを予約販売。棚スペースも在庫リスクも抑えて始められます。</span>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-olive-stack.jpg" alt="オリーブにオイルをかけた一皿">
+        <div class="figcap"><em>Fig. 04 — Una piccola tavola</em><span>Plate / EVOO</span></div>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <div class="process">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3 class="step-title">サンプル提案</h3>
+        <p class="step-cap">10mlパウチで味と使い方を体験してもらう。</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3 class="step-title">サロンで予約受付</h3>
+        <p class="step-cap">購入希望のお客様分だけ注文をまとめる。</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3 class="step-title">必要数だけ発注</h3>
+        <p class="step-cap">食品ロスと在庫負担を抑えて導入できる。</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3 class="step-title">500mlへ展開</h3>
+        <p class="step-cap">習慣化したお客様へ本品・ギフトを提案。</p>
+      </div>
+    </div>
+  </div>
+  <div style="height:96px"></div>
+</section>
+
+<!-- ========= 03 PRODUCT ========= -->
+<section class="spread" id="product">
+  <div class="section-head">
+    <div class="section-num">Chapter<b>03</b></div>
+    <div>
+      <div class="section-kicker">The Product</div>
+      <h2 class="section-title">人との出会いから生まれた、<br><em>コラート産</em> EVOO。</h2>
+    </div>
+  </div>
+
+  <div class="product-spread">
+    <div class="product-photo">
+      <span class="tag">№ 500ml</span>
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-product-hand.jpg" alt="手に持たれたCHIOMAの500mlボトル">
+    </div>
+    <div>
+      <div class="product-spec">
+        <div class="spec"><div class="spec-k">Cultivar — 品種</div><div class="spec-v"><em>i.</em>コラティーナ種 100%</div></div>
+        <div class="spec"><div class="spec-k">Origin — 産地</div><div class="spec-v"><em>ii.</em>イタリア / プーリア州コラート</div></div>
+        <div class="spec"><div class="spec-k">Type — タイプ</div><div class="spec-v"><em>iii.</em>Extra Virgin Olive Oil</div></div>
+        <div class="spec"><div class="spec-k">Method — 搾油</div><div class="spec-v"><em>iv.</em>コールドプレス（27°C以下）</div></div>
+        <div class="spec"><div class="spec-k">Use — 用途</div><div class="spec-v"><em>v.</em>食用 / オレショット・料理・ギフト</div></div>
+        <div class="spec"><div class="spec-k">Shelf — 賞味</div><div class="spec-v"><em>vi.</em>製造から18ヶ月（未開封）</div></div>
+        <div class="spec"><div class="spec-k">Storage — 保存</div><div class="spec-v"><em>vii.</em>常温・直射日光と高温多湿を避けて</div></div>
+      </div>
+      <p class="origin-note">
+        CHIOMAは、大分市で<b>オーガニック美容室を20年</b>経営してきた山村剛司が、イタリア・プーリア州コラートで出会った生産者との信頼関係から届けるオリーブオイルです。商社を通さず、<b>テドーネ農園との直接のつながり</b>を大切にしています。
+      </p>
+    </div>
+  </div>
+
+  <div class="triptych">
+    <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-blue-texture.jpg" alt="ブルーラベルテクスチャ">
+    <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-olive-stack.jpg" alt="オリーブとオリーブオイル">
+    <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-bottle-label-1.jpg" alt="ボトルラベル">
+  </div>
+</section>
+
+<!-- ========= 04 EVIDENCE ========= -->
+<section class="evidence" id="evidence">
+  <div class="spread">
+    <div class="section-head">
+      <div class="section-num">Chapter<b>04</b></div>
+      <div>
+        <div class="section-kicker">Ingredient &amp; Evidence</div>
+        <h2 class="section-title">高ポリフェノール品種として、<br><em>説明しやすい</em>成分情報。</h2>
+      </div>
+    </div>
+    <div class="ev-grid">
+      <div class="ev">
+        <div class="ev-num">i.</div>
+        <h3>ポリフェノール総量<br>400〜600 mg/kg</h3>
+        <p>一般的なEVOOの目安とされる〜150mg/kgに比べ、高いポリフェノール量を持つコラティーナ種。苦味と辛味は成分の豊かさを伝える特徴です。</p>
+      </div>
+      <div class="ev">
+        <div class="ev-num">ii.</div>
+        <h3>酸度 0.2% 以下</h3>
+        <p>エクストラバージンオリーブオイル基準の0.8%以下を大きく下回る品質目安。フレッシュな状態を大切にした商品です。</p>
+      </div>
+      <div class="ev">
+        <div class="ev-num">iii.</div>
+        <h3>Oleocanthal &amp;<br>Oleuropein</h3>
+        <p>高品質EVOOに含まれるフェノール化合物として研究されている成分。美容意識の高いお客様へ、一般的な成分情報として共有しやすい切り口です。</p>
+      </div>
+    </div>
+    <p class="disclaimer">※ CHIOMAは食品です。特定の疾病の予防・治療を目的とせず、効能・効果を標榜するものではありません。</p>
+  </div>
+</section>
+
+<!-- ========= 05 USE ========= -->
+<section class="spread" id="use">
+  <div class="section-head">
+    <div class="section-num">Chapter<b>05</b></div>
+    <div>
+      <div class="section-kicker">Recommended Use</div>
+      <h2 class="section-title">お客様に伝えやすい、<br><em>4つの</em>使い方。</h2>
+    </div>
+  </div>
+
+  <div class="use-spread">
+    <article class="use-card">
+      <div>
+        <div class="topline"><div class="num">i.</div><div class="label">Morning Ritual</div></div>
+        <h3>朝のオレショット</h3>
+      </div>
+      <p>10mlのオリーブオイルとレモン果汁を朝に。韓国美容トレンドとして紹介しやすい使い方です。</p>
+    </article>
+    <article class="use-card">
+      <div>
+        <div class="topline"><div class="num">ii.</div><div class="label">Evening Habit</div></div>
+        <h3>就寝前の習慣</h3>
+      </div>
+      <p>就寝前に10mlをそのまま。毎日続けやすい分量として、パウチ提案にも向いています。</p>
+    </article>
+    <article class="use-card">
+      <div>
+        <div class="topline"><div class="num">iii.</div><div class="label">In the Kitchen</div></div>
+        <h3>料理の仕上げに</h3>
+      </div>
+      <p>サラダ、パスタ、パン、スープなどに。加熱せず仕上げに使うと、香りと風味を楽しめます。</p>
+    </article>
+    <article class="use-card">
+      <div>
+        <div class="topline"><div class="num">iv.</div><div class="label">Gift &amp; Sampling</div></div>
+        <h3>ギフト・店頭体験</h3>
+      </div>
+      <p>30個・90個のパウチは、来店後の体験配布やキャンペーン、ギフト提案にも活用できます。</p>
+    </article>
+  </div>
+
+  <div class="use-imagery">
+    <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-salon-talk-2.jpg" alt="美容室で会話する女性たち">
+    <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-use-portrait.png" alt="CHIOMAのボトルと笑顔の女性">
+    <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-shipping-box.jpg" alt="CHIOMAボトルを箱から取り出す様子">
+    <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-use-dining.png" alt="料理とCHIOMAのボトル">
+  </div>
+</section>
+
+<!-- ========= 06 PRICING ========= -->
+<section class="pricing" id="pricing">
+  <div class="spread">
+    <div class="section-head">
+      <div class="section-num">Chapter<b>06</b></div>
+      <div>
+        <div class="section-kicker">Product Price / 2026.05</div>
+        <h2 class="section-title"><em>希望小売価格。</em></h2>
+      </div>
+    </div>
+
+    <div class="price-grid">
+      <article class="price-card">
+        <div class="visual"><img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-price-bottle.png" alt="500mlボトル"></div>
+        <div class="price-cat">Bottle</div>
+        <h3>CHIOMA <br>500ml Bottle</h3>
+        <div class="price-amt">¥7,700<small>希望小売価格 (税別)</small></div>
+        <div class="price-sub">ディーラー様・サロン様の取引条件はお問い合わせください</div>
+        <ul class="price-feat">
+          <li>内容量：500ml × 1本</li>
+          <li>ご自宅用・ギフト提案の中心商品</li>
+          <li>オレショット習慣を続けたいお客様へ</li>
+        </ul>
+      </article>
+      <article class="price-card">
+        <div class="visual"><img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-green-pouch.png" alt="10mlパウチ30個"></div>
+        <div class="price-cat">Pouch · S</div>
+        <h3>10ml Pouch <br>× 30個</h3>
+        <div class="price-amt">¥6,500<small>希望小売価格 (税別)</small></div>
+        <div class="price-sub">ディーラー様・サロン様の取引条件はお問い合わせください</div>
+        <ul class="price-feat">
+          <li>内容量：10ml × 30個</li>
+          <li>1個あたり：約¥217</li>
+          <li>サロン体験配布・販売導入に</li>
+        </ul>
+      </article>
+      <article class="price-card">
+        <div class="visual"><img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-green-pouch.png" alt="10mlパウチ90個"></div>
+        <div class="price-cat">Pouch · L</div>
+        <h3>10ml Pouch <br>× 90個</h3>
+        <div class="price-amt">¥19,000<small>希望小売価格 (税別)</small></div>
+        <div class="price-sub">ディーラー様・サロン様の取引条件はお問い合わせください</div>
+        <ul class="price-feat">
+          <li>内容量：10ml × 90個</li>
+          <li>1個あたり：約¥211</li>
+          <li>キャンペーン・イベント提案に</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="price-meta">
+      <div class="price-meta-item"><div class="k">取引条件</div><div class="v">ディーラー様・サロン様向け価格はお問い合わせください</div></div>
+      <div class="price-meta-item"><div class="k">販売方式</div><div class="v">予約受注生産方式 / 売れた分だけ発注</div></div>
+      <div class="price-meta-item"><div class="k">初回導入</div><div class="v">サンプル提案から開始可能</div></div>
+      <div class="price-meta-item"><div class="k">お問い合わせ</div><div class="v">山村剛司 / info@common-hairdesign.com</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 07 FAQ ========= -->
+<section class="spread" id="faq">
+  <div class="section-head">
+    <div class="section-num">Chapter<b>07</b></div>
+    <div>
+      <div class="section-kicker">FAQ</div>
+      <h2 class="section-title">導入前の、<em>気になること。</em></h2>
+    </div>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item" open>
+      <div class="faq-num">Q.01</div>
+      <div class="faq-body">
+        <summary>初回サンプルはありますか？</summary>
+        <p>導入前に、まず味・香り・オレショットとしての提案方法を確認いただけます。詳細はお問い合わせ時にご案内します。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <div class="faq-num">Q.02</div>
+      <div class="faq-body">
+        <summary>最小発注数はいくつですか？</summary>
+        <p>予約販売方式のため、売れた分だけ発注しやすい設計です。ロットや納期は取引条件に合わせてご案内します。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <div class="faq-num">Q.03</div>
+      <div class="faq-body">
+        <summary>医薬品のように説明してもよいですか？</summary>
+        <p>いいえ。CHIOMAは食品です。成分に関する一般的な情報や、食習慣としての取り入れ方をご案内ください。疾病の予防・治療や効能効果をうたう表現は避けてください。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <div class="faq-num">Q.04</div>
+      <div class="faq-body">
+        <summary>賞味期限と保存方法は？</summary>
+        <p>賞味期限は製造から18ヶ月（未開封）です。直射日光・高温多湿を避けて常温保存し、開封後は3ヶ月以内を目安にご使用ください。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <div class="faq-num">Q.05</div>
+      <div class="faq-body">
+        <summary>お客様へどのように説明すればよいですか？</summary>
+        <p>「韓国で話題のオレショットをご存知ですか？」をきっかけに、10mlパウチを1回分として試してもらう流れがおすすめです。気に入った方へ500mlボトルを予約販売で提案できます。</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ========= FINAL ========= -->
+<section class="final">
+  <div class="final-kicker">Sample Request — オレショット需要を、サロンの次の店販提案へ。</div>
+  <h2>サロンの次の<em>店販提案</em>を、<br>ここから。</h2>
+  <a href="mailto:info@common-hairdesign.com" class="final-cta">メールでサンプルを請求 →</a>
+  <div class="final-sub">Instagram DM: @chioma_olive ／ 担当：山村</div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-logo">CHIOMA</div>
+      <div class="foot-tag">Coratina 100% Extra Virgin Olive Oil — Corato, Puglia, Italy</div>
+    </div>
+    <div>
+      <div class="foot-h">Contact</div>
+      <a class="foot-link" href="mailto:info@common-hairdesign.com">info@common-hairdesign.com</a>
+      <a class="foot-link" href="#">Instagram: @chioma_olive</a>
+      <a class="foot-link" href="#">担当：山村剛司</a>
+    </div>
+    <div>
+      <div class="foot-h">Index</div>
+      <a class="foot-link" href="#trend">01 Trend</a>
+      <a class="foot-link" href="#salon">02 Salon</a>
+      <a class="foot-link" href="#product">03 Product</a>
+      <a class="foot-link" href="#pricing">06 Price</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 CHIOMA / Common Hair Design</span>
+    <span>※ 食品です。医薬品ではありません。</span>
+    <span>Editoriale Vol.01 — Spring</span>
+  </div>
+</footer>
+
+</body>
+</html>
