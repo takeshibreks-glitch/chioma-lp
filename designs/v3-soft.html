@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHIOMA — Daily Ritual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f2e8;
+    --bg-2:#efe7d6;
+    --bg-warm:#f4dccd;
+    --sage:#7c8a6a;
+    --sage-deep:#4a5a3e;
+    --sage-soft:#c8d2b8;
+    --peach:#e8a890;
+    --peach-deep:#c47a5e;
+    --ink:#2a2a26;
+    --ink-2:#5e5a52;
+    --ink-3:#8a857a;
+    --line:#d8cfbb;
+    --max:1280px;
+    --radius:24px;
+    --radius-l:32px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);overflow-x:hidden}
+  body{
+    font-family:"Noto Sans JP","Hanken Grotesk", system-ui, sans-serif;
+    font-weight:400;line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--peach);color:var(--ink)}
+
+  .display{font-family:"Fraunces", serif;font-weight:400;letter-spacing:-0.015em}
+  .display-it{font-family:"Fraunces", serif;font-style:italic;font-weight:400}
+  .latin{font-family:"Hanken Grotesk", sans-serif}
+  .eyebrow{
+    font-family:"Hanken Grotesk", sans-serif;
+    text-transform:uppercase;letter-spacing:.18em;
+    font-size:11px;font-weight:600;
+    color:var(--sage-deep);
+  }
+
+  /* === Top bar === */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,242,232,.85);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s, background .3s;
+  }
+  .topbar.scrolled{border-bottom-color:var(--line);background:rgba(247,242,232,.95)}
+  .top-inner{
+    max-width:var(--max);margin:0 auto;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 32px;gap:24px;
+  }
+  .top-logo{
+    font-family:"Fraunces", serif;font-weight:500;letter-spacing:.32em;font-size:20px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .top-logo::before{
+    content:"";width:8px;height:8px;border-radius:50%;background:var(--sage);
+  }
+  .top-nav{display:flex;gap:32px;align-items:center}
+  .top-nav a{font-size:13.5px;color:var(--ink-2);font-weight:500;transition:color .2s}
+  .top-nav a:hover{color:var(--ink)}
+  .top-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;background:var(--ink);color:var(--bg);
+    border-radius:999px;font-size:13px;font-weight:500;
+    transition:.25s;
+  }
+  .top-cta:hover{background:var(--sage-deep);transform:translateY(-1px)}
+
+  /* === HERO === */
+  .hero{
+    max-width:var(--max);margin:0 auto;
+    padding:48px 32px 80px;
+    display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;
+    position:relative;
+  }
+  .hero-eye{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.6);margin-bottom:32px}
+  .hero-eye .dot{width:6px;height:6px;border-radius:50%;background:var(--peach-deep);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+  .hero-eye .lab{font-size:12px;font-weight:500;color:var(--ink-2)}
+
+  .hero h1{
+    font-family:"Fraunces",serif;font-weight:400;
+    font-size:clamp(48px, 6.6vw, 96px);line-height:1.05;letter-spacing:-0.02em;
+    margin:0;color:var(--ink);
+    text-wrap:balance;
+  }
+  .hero h1 em{
+    font-family:"Fraunces",serif;font-style:italic;font-weight:300;
+    color:var(--sage-deep);
+  }
+  .hero h1 .underline{
+    position:relative;display:inline-block;
+  }
+  .hero h1 .underline::after{
+    content:"";position:absolute;left:0;right:0;bottom:.05em;height:.3em;
+    background:var(--peach);opacity:.45;border-radius:999px;z-index:-1;
+  }
+
+  .hero-lede{
+    margin:32px 0 36px;font-size:17px;line-height:1.95;color:var(--ink-2);
+    max-width:50ch;
+  }
+  .hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 28px;border-radius:999px;
+    font-family:"Hanken Grotesk", sans-serif;font-size:14.5px;font-weight:600;letter-spacing:.01em;
+    transition:.25s;
+  }
+  .btn-primary{background:var(--ink);color:var(--bg)}
+  .btn-primary:hover{background:var(--sage-deep);transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(74,90,62,.5)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink-2)}
+  .btn-ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .btn .arrow{transition:transform .25s}
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  .hero-foot{
+    margin-top:36px;padding-top:24px;
+    border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:24px;
+    font-size:12px;color:var(--ink-3);font-weight:500;
+  }
+  .hero-foot span::before{content:"·";color:var(--peach-deep);margin-right:8px;font-weight:700}
+
+  .hero-art{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:var(--radius-l);
+    overflow:hidden;
+    background:var(--peach);
+  }
+  .hero-art img{width:100%;height:100%;object-fit:cover}
+  .hero-floater{
+    position:absolute;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(6px);
+    border-radius:20px;
+    padding:14px 18px;
+    display:flex;align-items:center;gap:12px;
+    box-shadow:0 12px 28px -8px rgba(0,0,0,.18);
+    z-index:2;
+  }
+  .hero-floater.bottom-left{bottom:24px;left:24px;max-width:230px}
+  .hero-floater.top-right{top:24px;right:24px}
+  .hero-floater .swatch{
+    width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(135deg,#d6b463,#9a8438);
+    flex-shrink:0;
+    display:grid;place-items:center;color:#fff;font-family:"Fraunces",serif;font-style:italic;
+    font-size:14px;
+  }
+  .hero-floater .copy .t{font-family:"Fraunces",serif;font-style:italic;font-size:14px;color:var(--ink);margin-bottom:2px;line-height:1.3}
+  .hero-floater .copy .s{font-size:11px;color:var(--ink-3);font-weight:500}
+  .hero-floater.top-right{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px 16px}
+  .hero-floater.top-right .big{font-family:"Fraunces",serif;font-size:32px;line-height:1;color:var(--peach-deep);font-weight:500;letter-spacing:-.02em}
+  .hero-floater.top-right .lab{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-3);font-weight:600}
+
+  /* === Decorative blobs === */
+  .blob{
+    position:absolute;border-radius:50%;filter:blur(50px);opacity:.55;pointer-events:none;z-index:-1;
+  }
+  .blob-1{width:380px;height:380px;background:var(--peach);top:-100px;left:-100px}
+  .blob-2{width:340px;height:340px;background:var(--sage-soft);bottom:-100px;right:-80px}
+
+  /* === Section === */
+  section.spread{
+    max-width:var(--max);margin:0 auto;
+    padding:96px 32px;
+  }
+  .section-head{
+    margin-bottom:56px;
+    max-width:680px;
+  }
+  .section-head .eyebrow{margin-bottom:18px;display:block}
+  .section-title{
+    font-family:"Fraunces",serif;font-weight:400;
+    font-size:clamp(36px, 4.8vw, 64px);line-height:1.12;letter-spacing:-.015em;
+    margin:0;text-wrap:pretty;
+  }
+  .section-title em{font-family:"Fraunces",serif;font-style:italic;color:var(--sage-deep);font-weight:300}
+  .section-title .mark{
+    background:linear-gradient(180deg, transparent 60%, rgba(232,168,144,.45) 60%);
+    padding:0 .1em;
+  }
+
+  /* === TREND === */
+  .trend{
+    background:linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  }
+  .trend-grid{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    grid-auto-rows:auto;
+    gap:14px;
+  }
+  .card{
+    background:#fff;border-radius:var(--radius);
+    padding:32px;
+    border:1px solid var(--line);
+    transition:transform .3s, box-shadow .3s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -16px rgba(42,42,38,.18)}
+  .card-photo{padding:0;overflow:hidden;border:1px solid var(--line)}
+  .card-photo img{width:100%;height:100%;object-fit:cover}
+
+  .c-text-1{grid-column:span 4;display:flex;flex-direction:column;justify-content:space-between}
+  .c-text-1 p{font-size:16px;line-height:1.95;color:var(--ink-2);margin:0 0 16px}
+  .c-text-1 p:first-of-type::first-letter{
+    font-family:"Fraunces",serif;font-style:italic;font-size:64px;
+    float:left;line-height:.85;padding:6px 12px 0 0;color:var(--peach-deep);font-weight:500;
+  }
+  .c-stat{
+    grid-column:span 2;display:flex;flex-direction:column;justify-content:space-between;
+    background:var(--sage-deep);color:var(--bg);border-color:var(--sage-deep);
+    aspect-ratio:1/1;
+  }
+  .c-stat .big{font-family:"Fraunces",serif;font-size:64px;line-height:.95;letter-spacing:-.02em;font-weight:400}
+  .c-stat .big small{font-size:.4em;font-style:italic;color:var(--peach);margin-left:4px;font-weight:300;font-family:"Fraunces",serif}
+  .c-stat .lab{font-size:13px;line-height:1.6;color:rgba(247,242,232,.85);max-width:24ch;margin-top:auto}
+
+  .c-photo-1{grid-column:span 3}
+  .c-photo-1 img{aspect-ratio:5/4}
+  .c-photo-2{grid-column:span 3}
+  .c-photo-2 img{aspect-ratio:5/4}
+  .c-stat-2{grid-column:span 2;background:var(--peach);color:var(--ink);border-color:var(--peach);aspect-ratio:1/1}
+  .c-stat-2 .big{font-family:"Fraunces",serif;font-size:64px;line-height:.95;letter-spacing:-.02em;font-weight:400}
+  .c-stat-2 .lab{font-size:13px;line-height:1.6;color:var(--ink);max-width:24ch;margin-top:auto;opacity:.85}
+  .c-stat-3{grid-column:span 2;background:#fff;aspect-ratio:1/1;display:flex;flex-direction:column;justify-content:space-between}
+  .c-stat-3 .big{font-family:"Fraunces",serif;font-size:64px;line-height:.95;color:var(--ink);font-weight:400;letter-spacing:-.02em}
+  .c-stat-3 .lab{font-size:13px;line-height:1.6;color:var(--ink-2);max-width:24ch}
+
+  /* === Salon === */
+  .salon-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  }
+  .salon-img{aspect-ratio:4/5;border-radius:var(--radius-l);overflow:hidden;position:relative}
+  .salon-img img{width:100%;height:100%;object-fit:cover}
+  .salon-img::after{
+    content:"";position:absolute;inset:0;
+    border:8px solid rgba(255,255,255,.2);border-radius:var(--radius-l);pointer-events:none;
+  }
+  .salon-body p{font-size:17px;line-height:1.95;color:var(--ink-2);margin:0 0 22px;max-width:46ch}
+  .salon-callout{
+    margin-top:32px;padding:28px 32px;
+    background:#fff;border-radius:var(--radius);border:1px solid var(--line);
+    display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:center;
+  }
+  .salon-callout .icon{
+    width:48px;height:48px;border-radius:50%;background:var(--peach);
+    display:grid;place-items:center;color:var(--ink);font-family:"Fraunces",serif;font-style:italic;font-size:22px;
+  }
+  .salon-callout .copy{font-size:14.5px;color:var(--ink-2);line-height:1.7}
+  .salon-callout .copy b{color:var(--ink);font-weight:600}
+
+  /* === Process === */
+  .process{
+    margin-top:80px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  }
+  .step{
+    background:#fff;border-radius:var(--radius);padding:32px 24px;
+    border:1px solid var(--line);
+    position:relative;overflow:hidden;
+    transition:transform .3s, box-shadow .3s;
+  }
+  .step:hover{transform:translateY(-4px);box-shadow:0 16px 36px -16px rgba(42,42,38,.2)}
+  .step-num{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--sage-soft);color:var(--sage-deep);
+    display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:500;font-size:18px;
+    margin-bottom:20px;
+  }
+  .step:nth-child(1) .step-num{background:var(--peach)}
+  .step:nth-child(2) .step-num{background:var(--sage-soft)}
+  .step:nth-child(3) .step-num{background:#e9d8a6}
+  .step:nth-child(4) .step-num{background:var(--bg-warm)}
+  .step h3{font-family:"Noto Sans JP",sans-serif;font-weight:600;font-size:18px;margin:0 0 10px;color:var(--ink)}
+  .step p{font-size:13.5px;color:var(--ink-2);line-height:1.75;margin:0}
+  .step::after{
+    content:"";position:absolute;right:-30px;bottom:-30px;
+    width:120px;height:120px;border-radius:50%;
+    background:var(--bg-2);opacity:.6;z-index:0;
+  }
+  .step > *{position:relative;z-index:1}
+
+  /* === Product === */
+  .product{
+    background:var(--bg-2);
+  }
+  .product-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+  }
+  .product-photo{
+    aspect-ratio:3/4;border-radius:var(--radius-l);overflow:hidden;
+    background:var(--sage-deep);position:relative;
+  }
+  .product-photo img{width:100%;height:100%;object-fit:cover}
+  .product-photo .stamp{
+    position:absolute;top:24px;right:24px;
+    width:84px;height:84px;border-radius:50%;
+    background:rgba(255,255,255,.95);
+    display:grid;place-items:center;text-align:center;
+    font-family:"Fraunces",serif;font-style:italic;font-size:13px;line-height:1.2;color:var(--ink);
+    box-shadow:0 8px 24px -10px rgba(0,0,0,.3);
+    transform:rotate(-6deg);
+  }
+  .product-photo .stamp small{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-style:normal;font-weight:600;color:var(--ink-3);margin-top:2px}
+
+  .spec-card{
+    background:#fff;border-radius:var(--radius-l);
+    border:1px solid var(--line);
+    padding:36px 36px 12px;
+  }
+  .spec-row{
+    display:grid;grid-template-columns:1fr 1.4fr;gap:24px;
+    padding:18px 0;border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .spec-row:last-of-type{border-bottom:0}
+  .spec-k{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--ink-3);font-weight:600}
+  .spec-v{font-family:"Noto Sans JP",sans-serif;font-size:15px;color:var(--ink);font-weight:500;line-height:1.5}
+  .spec-v em{font-family:"Fraunces",serif;font-style:italic;font-weight:400;color:var(--sage-deep);font-size:1.1em;margin-right:4px}
+
+  .origin{
+    margin-top:48px;padding:36px;
+    background:var(--sage-deep);color:var(--bg);
+    border-radius:var(--radius-l);
+    display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;
+  }
+  .origin-icon{
+    width:80px;height:80px;border-radius:50%;background:var(--peach);
+    display:grid;place-items:center;color:var(--ink);font-family:"Fraunces",serif;font-style:italic;font-size:32px;
+    flex-shrink:0;
+  }
+  .origin h3{font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-size:24px;margin:0 0 10px;line-height:1.4}
+  .origin p{font-size:14.5px;line-height:1.85;color:rgba(247,242,232,.88);margin:0;max-width:64ch}
+  .origin p b{color:var(--peach);font-weight:600}
+
+  .gallery{
+    margin-top:64px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .gallery img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:var(--radius)}
+
+  /* === Evidence === */
+  .ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .ev-card{
+    background:#fff;border-radius:var(--radius);
+    border:1px solid var(--line);padding:36px 28px;
+    transition:transform .3s, box-shadow .3s;
+    position:relative;overflow:hidden;
+  }
+  .ev-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -16px rgba(42,42,38,.2)}
+  .ev-card .num{
+    width:56px;height:56px;border-radius:50%;
+    background:var(--peach);color:var(--ink);
+    display:grid;place-items:center;font-family:"Fraunces",serif;font-style:italic;font-weight:500;font-size:24px;
+    margin-bottom:24px;
+  }
+  .ev-card:nth-child(2) .num{background:var(--sage-soft);color:var(--sage-deep)}
+  .ev-card:nth-child(3) .num{background:#e9d8a6}
+  .ev-card h3{font-family:"Fraunces",serif;font-weight:500;font-size:22px;margin:0 0 14px;line-height:1.4;color:var(--ink)}
+  .ev-card h3 em{font-family:"Fraunces",serif;font-style:italic;color:var(--peach-deep);font-weight:400}
+  .ev-card p{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin:0}
+  .disclaim{
+    margin-top:32px;padding:20px 28px;border-radius:999px;
+    background:rgba(255,255,255,.6);border:1px solid var(--line);
+    text-align:center;font-size:12.5px;color:var(--ink-3);
+  }
+
+  /* === USE === */
+  .use-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  }
+  .use-card{
+    position:relative;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;
+    background:var(--sage-deep);
+    transition:transform .3s;
+  }
+  .use-card:hover{transform:translateY(-4px)}
+  .use-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .use-card:hover img{transform:scale(1.05)}
+  .use-card::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.7) 100%);
+  }
+  .use-card .body{
+    position:absolute;left:24px;right:24px;bottom:22px;color:var(--bg);z-index:2;
+  }
+  .use-card .num{
+    display:inline-block;font-family:"Fraunces",serif;font-style:italic;font-weight:400;
+    font-size:14px;color:var(--peach);margin-bottom:8px;
+  }
+  .use-card h3{font-family:"Noto Sans JP",sans-serif;font-weight:600;font-size:20px;margin:0 0 10px;line-height:1.3;color:#fff}
+  .use-card p{font-size:13px;line-height:1.7;margin:0;color:rgba(255,255,255,.9)}
+
+  /* === PRICING === */
+  .pricing{background:var(--bg-warm)}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .price-card{
+    background:#fff;border-radius:var(--radius-l);
+    border:1px solid var(--line);
+    padding:0;display:flex;flex-direction:column;
+    overflow:hidden;
+    transition:transform .3s, box-shadow .3s;
+  }
+  .price-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -20px rgba(42,42,38,.25)}
+  .price-card.featured{border:2px solid var(--sage-deep);position:relative}
+  .price-card.featured::before{
+    content:"おすすめ";
+    position:absolute;top:18px;right:18px;
+    background:var(--sage-deep);color:var(--bg);
+    font-size:11px;font-weight:600;padding:5px 12px;border-radius:999px;
+    letter-spacing:.05em;
+  }
+  .price-visual{
+    aspect-ratio:1/1;
+    background:linear-gradient(180deg, var(--bg-2), var(--bg-warm));
+    display:grid;place-items:center;overflow:hidden;
+  }
+  .price-visual img{width:60%;height:80%;object-fit:contain;mix-blend-mode:multiply}
+  .price-info{padding:32px 32px 36px;display:flex;flex-direction:column;flex:1}
+  .price-cat{
+    display:inline-block;align-self:flex-start;
+    padding:5px 12px;border-radius:999px;
+    background:var(--bg-2);color:var(--sage-deep);
+    font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .price-card h3{font-family:"Fraunces",serif;font-weight:500;font-size:24px;line-height:1.25;margin:0 0 24px;color:var(--ink)}
+  .price-amt{
+    font-family:"Fraunces",serif;font-weight:400;font-size:48px;line-height:1;
+    letter-spacing:-.02em;color:var(--ink);
+  }
+  .price-amt small{
+    display:block;margin-top:8px;
+    font-family:"Hanken Grotesk",sans-serif;font-size:11.5px;font-weight:600;
+    letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;
+  }
+  .price-sub{
+    margin-top:16px;padding:12px 16px;border-radius:14px;
+    background:var(--bg);
+    font-size:13px;color:var(--ink-2);
+  }
+  .price-feat{
+    margin-top:24px;padding-top:24px;border-top:1px dashed var(--line);
+    list-style:none;padding-left:0;display:flex;flex-direction:column;gap:12px;
+    font-size:13.5px;color:var(--ink-2);line-height:1.6;
+  }
+  .price-feat li{display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:start}
+  .price-feat li::before{
+    content:"";width:14px;height:14px;border-radius:50%;background:var(--sage-soft);
+    margin-top:5px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7.5l3 3 5-6' fill='none' stroke='%234a5a3e' stroke-width='1.5' stroke-linecap='round'/></svg>");
+    background-position:center;background-repeat:no-repeat;
+  }
+
+  .price-meta{
+    margin-top:48px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .price-meta-item{
+    background:#fff;padding:24px;border-radius:var(--radius);
+    border:1px solid var(--line);
+  }
+  .price-meta-item .k{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--peach-deep);font-weight:600;margin-bottom:10px}
+  .price-meta-item .v{font-size:14.5px;color:var(--ink);font-weight:500;line-height:1.5}
+
+  /* === FAQ === */
+  .faq{display:flex;flex-direction:column;gap:12px}
+  .faq details{
+    background:#fff;border-radius:var(--radius);
+    border:1px solid var(--line);
+    transition:.3s;
+    overflow:hidden;
+  }
+  .faq details[open]{border-color:var(--sage)}
+  .faq summary{
+    list-style:none;cursor:pointer;
+    padding:24px 28px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;
+    font-family:"Noto Sans JP",sans-serif;font-weight:600;font-size:17px;color:var(--ink);
+    line-height:1.5;
+    transition:background .2s;
+  }
+  .faq summary:hover{background:var(--bg)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .num{
+    width:32px;height:32px;border-radius:50%;
+    background:var(--bg-2);color:var(--sage-deep);
+    display:grid;place-items:center;font-family:"Fraunces",serif;font-style:italic;font-size:14px;font-weight:500;
+  }
+  .faq details[open] summary .num{background:var(--sage-deep);color:var(--bg)}
+  .faq summary .plus{
+    width:32px;height:32px;border-radius:50%;
+    background:var(--bg-2);color:var(--ink);
+    display:grid;place-items:center;font-size:18px;
+    transition:.3s;
+  }
+  .faq details[open] summary .plus{transform:rotate(45deg);background:var(--peach);color:var(--ink)}
+  .faq details > div{
+    padding:0 28px 24px 78px;
+    font-size:14.5px;line-height:1.95;color:var(--ink-2);
+  }
+
+  /* === FINAL === */
+  .final{
+    margin:48px 32px;
+    padding:96px 48px;
+    background:linear-gradient(135deg, var(--peach) 0%, var(--peach-deep) 100%);
+    border-radius:var(--radius-l);
+    text-align:center;
+    color:var(--ink);
+    position:relative;overflow:hidden;
+  }
+  .final::before{
+    content:"";position:absolute;top:-100px;left:-100px;
+    width:300px;height:300px;border-radius:50%;
+    background:rgba(255,255,255,.2);
+    filter:blur(40px);
+  }
+  .final::after{
+    content:"";position:absolute;bottom:-100px;right:-50px;
+    width:280px;height:280px;border-radius:50%;
+    background:rgba(124,138,106,.3);
+    filter:blur(40px);
+  }
+  .final > *{position:relative;z-index:2}
+  .final .eyebrow{margin-bottom:24px;color:var(--ink);opacity:.75}
+  .final h2{
+    font-family:"Fraunces",serif;font-weight:400;
+    font-size:clamp(36px, 5.4vw, 72px);line-height:1.12;letter-spacing:-.015em;
+    margin:0 auto 36px;max-width:18ch;color:#fff;
+    text-wrap:balance;
+  }
+  .final h2 em{font-family:"Fraunces",serif;font-style:italic;font-weight:300;color:var(--ink)}
+  .final-cta{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:18px 32px;background:var(--ink);color:var(--bg);
+    border-radius:999px;font-weight:600;font-size:15px;
+    transition:.25s;
+  }
+  .final-cta:hover{background:#fff;color:var(--ink);transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(0,0,0,.35)}
+  .final-sub{margin-top:20px;font-size:14px;color:rgba(42,42,38,.85)}
+
+  /* === Footer === */
+  footer{
+    padding:64px 32px 36px;
+    background:var(--bg);
+  }
+  .foot-inner{
+    max-width:var(--max);margin:0 auto;
+    display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;
+  }
+  .foot-logo{font-family:"Fraunces",serif;font-weight:500;font-size:30px;letter-spacing:.32em;display:flex;align-items:center;gap:10px}
+  .foot-logo::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage)}
+  .foot-tag{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.6;max-width:36ch}
+  .foot-h{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--peach-deep);font-weight:600;margin-bottom:14px}
+  .foot-link{display:block;font-size:14px;color:var(--ink-2);padding:5px 0;font-weight:500}
+  .foot-link:hover{color:var(--ink)}
+  .foot-bottom{
+    max-width:var(--max);margin:48px auto 0;padding-top:24px;
+    border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+    font-size:12px;color:var(--ink-3);
+  }
+
+  @media (max-width:900px){
+    .top-nav{display:none}
+    .hero{grid-template-columns:1fr;padding-top:24px;gap:36px}
+    section.spread{padding:64px 22px}
+    .trend-grid{grid-template-columns:1fr}
+    .c-text-1,.c-stat,.c-photo-1,.c-photo-2,.c-stat-2,.c-stat-3{grid-column:span 1}
+    .c-stat,.c-stat-2,.c-stat-3{aspect-ratio:auto}
+    .salon-grid,.product-grid,.foot-inner{grid-template-columns:1fr}
+    .process,.ev-grid,.use-grid,.price-grid,.gallery,.price-meta{grid-template-columns:1fr 1fr}
+    .origin{grid-template-columns:1fr;text-align:center}
+    .origin-icon{justify-self:center}
+    .final{margin:32px 16px;padding:64px 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- top bar -->
+<header class="topbar" id="topbar">
+  <div class="top-inner">
+    <div class="top-logo">CHIOMA</div>
+    <nav class="top-nav">
+      <a href="#trend">Trend</a>
+      <a href="#salon">Salon</a>
+      <a href="#product">Product</a>
+      <a href="#pricing">価格</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="mailto:info@common-hairdesign.com" class="top-cta">サンプル請求 →</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<main>
+<section class="hero" id="top">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div>
+    <div class="hero-eye">
+      <span class="dot"></span>
+      <span class="lab">Ole Shot Trend / Dealer &amp; Salon Proposal</span>
+    </div>
+    <h1>
+      韓国発の<br>
+      <span class="underline">飲む美容</span>習慣を、<br>
+      <em>サロンの店販へ。</em>
+    </h1>
+    <p class="hero-lede">
+      CHIOMAは、イタリア・プーリア州コラート産コラティーナ種100％のエクストラバージンオリーブオイル。朝のオレショット、腸活、インナーケアに関心の高いお客様へ、サロンから自然に提案できる食品店販です。
+    </p>
+    <div class="hero-cta-row">
+      <a class="btn btn-primary" href="mailto:info@common-hairdesign.com">無料サンプルを請求 <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#pricing">商品価格を見る</a>
+    </div>
+    <div class="hero-foot">
+      <span>ディーラー・サロン様向け</span>
+      <span>予約販売方式</span>
+      <span>食品 — 医薬品ではありません</span>
+    </div>
+  </div>
+  <div class="hero-art">
+    <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-hero-woman.jpg" alt="キッチンでほほえむ女性とCHIOMAのボトル">
+    <div class="hero-floater bottom-left">
+      <div class="swatch">EV</div>
+      <div class="copy">
+        <div class="t">朝の10ml、新しい習慣。</div>
+        <div class="s">Coratina 100% · Cold Pressed</div>
+      </div>
+    </div>
+    <div class="hero-floater top-right">
+      <span class="big">10<span style="font-size:.5em">ml</span></span>
+      <span class="lab">Daily Ritual</span>
+    </div>
+  </div>
+</section>
+
+<!-- TREND -->
+<section class="trend">
+  <div class="spread">
+    <div class="section-head">
+      <span class="eyebrow">— Market Trend</span>
+      <h2 class="section-title">韓国で広がった<em>オレショット</em>が、<br>日本の <span class="mark">美容市場</span>へ。</h2>
+    </div>
+
+    <div class="trend-grid">
+      <div class="card c-text-1">
+        <div>
+          <p>オレショットは、朝の空腹時にエクストラバージンオリーブオイル約10mlとレモン果汁を合わせて飲む美容・健康習慣。韓国ではSNS、アイドル・女優の発信、ドラッグストア検索の増加をきっかけに「飲む美容ルーティン」として注目されています。</p>
+          <p>日本でも韓国美容、腸活、インナーケアへの関心は高まり続けています。サロンは髪だけでなく、肌・頭皮・食事・暮らしの相談が生まれる場所です。</p>
+        </div>
+      </div>
+      <div class="card c-stat">
+        <div class="big">7×<small>↑</small></div>
+        <div class="lab">韓国オリーブヤング「オリーブオイル」検索増加</div>
+      </div>
+      <div class="card card-photo c-photo-1">
+        <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-harvest-hand.jpg" alt="手で搾られるオリーブ">
+      </div>
+      <div class="card c-stat-2">
+        <div class="big">+2,479<small>%</small></div>
+        <div class="lab">同期間「レモン果汁」検索増加</div>
+      </div>
+      <div class="card c-stat-3">
+        <div class="big">+109<small>%</small></div>
+        <div class="lab">韓国オリーブオイル市場 前年比成長</div>
+      </div>
+      <div class="card card-photo c-photo-2">
+        <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-salon-talk-1.jpg" alt="サロンで美容師とお客様">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SALON -->
+<section class="spread" id="salon">
+  <div class="section-head">
+    <span class="eyebrow">— Salon Opportunity</span>
+    <h2 class="section-title">「知っているサロン」が、<br><em>先に動ける。</em></h2>
+  </div>
+
+  <div class="salon-grid">
+    <div class="salon-img">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-olive-stack.jpg" alt="オリーブにオイルをかけた一皿">
+    </div>
+    <div class="salon-body">
+      <p>オレショットの入り口として、CHIOMAの<b>10mlパウチ</b>は1回分をそのまま試せる体験ツールです。「韓国で流行っている朝の美容習慣」と紹介できるため、食品店販が初めてのサロンでも会話をつくりやすくなります。</p>
+      <p>10mlパウチで体験し、気に入った方へ500mlボトルを予約販売。棚スペースも在庫リスクも抑えて始められます。</p>
+      <div class="salon-callout">
+        <div class="icon">✻</div>
+        <div class="copy"><b>「韓国で流行っている朝の美容習慣、知ってる？」</b><br>会話のきっかけは、サロンが一番自然につくれます。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div class="process">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>サンプル提案</h3>
+      <p>10mlパウチで味と使い方を体験してもらう。</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>サロンで予約受付</h3>
+      <p>購入希望のお客様分だけ注文をまとめる。</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>必要数だけ発注</h3>
+      <p>食品ロスと在庫負担を抑えて導入できる。</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>500mlへ展開</h3>
+      <p>習慣化したお客様へ本品・ギフトを提案。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="product">
+  <div class="spread" id="product">
+    <div class="section-head">
+      <span class="eyebrow">— The Product</span>
+      <h2 class="section-title">人との出会いから生まれた、<br><em>コラート産</em> EVOO。</h2>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-photo">
+        <div class="stamp">500<small>ml</small><br>Bottle</div>
+        <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-product-hand.jpg" alt="500mlボトル">
+      </div>
+      <div class="spec-card">
+        <div class="spec-row"><div class="spec-k">品種 / Cultivar</div><div class="spec-v"><em>i.</em>コラティーナ種 100%</div></div>
+        <div class="spec-row"><div class="spec-k">産地 / Origin</div><div class="spec-v"><em>ii.</em>イタリア / プーリア州コラート</div></div>
+        <div class="spec-row"><div class="spec-k">タイプ / Type</div><div class="spec-v"><em>iii.</em>Extra Virgin Olive Oil</div></div>
+        <div class="spec-row"><div class="spec-k">搾油 / Method</div><div class="spec-v"><em>iv.</em>コールドプレス（27°C以下）</div></div>
+        <div class="spec-row"><div class="spec-k">用途 / Use</div><div class="spec-v"><em>v.</em>食用 / オレショット・料理・ギフト</div></div>
+        <div class="spec-row"><div class="spec-k">賞味期限 / Shelf</div><div class="spec-v"><em>vi.</em>製造から18ヶ月（未開封）</div></div>
+        <div class="spec-row"><div class="spec-k">保存 / Storage</div><div class="spec-v"><em>vii.</em>常温・直射日光と高温多湿を避けて</div></div>
+      </div>
+    </div>
+
+    <div class="origin">
+      <div class="origin-icon">✻</div>
+      <div>
+        <h3>商社を通さず、テドーネ農園との直接のつながりから。</h3>
+        <p>CHIOMAは、大分市で<b>オーガニック美容室を20年</b>経営してきた山村剛司が、イタリア・プーリア州コラートで出会った生産者との信頼関係から届けるオリーブオイルです。</p>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-blue-texture.jpg" alt="ブルーラベル">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-olive-stack.jpg" alt="オリーブとオイル">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-bottle-label-1.jpg" alt="ボトルラベル">
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section class="spread" id="evidence">
+  <div class="section-head">
+    <span class="eyebrow">— Ingredient &amp; Evidence</span>
+    <h2 class="section-title">高ポリフェノール品種として、<br><em>説明しやすい</em>成分情報。</h2>
+  </div>
+
+  <div class="ev-grid">
+    <div class="ev-card">
+      <div class="num">i.</div>
+      <h3>ポリフェノール総量<br><em>400〜600</em>mg/kg</h3>
+      <p>一般的なEVOOの目安〜150mg/kgに比べ、高いポリフェノール量を持つコラティーナ種。苦味と辛味は成分の豊かさを伝える特徴です。</p>
+    </div>
+    <div class="ev-card">
+      <div class="num">ii.</div>
+      <h3>酸度 <em>0.2%</em> 以下</h3>
+      <p>EVOO基準の0.8%以下を大きく下回る品質目安。フレッシュな状態を大切にした商品です。</p>
+    </div>
+    <div class="ev-card">
+      <div class="num">iii.</div>
+      <h3>Oleocanthal &amp; <em>Oleuropein</em></h3>
+      <p>高品質EVOOに含まれるフェノール化合物として研究されている成分。美容意識の高いお客様へ、一般的な情報として共有しやすい切り口です。</p>
+    </div>
+  </div>
+  <div class="disclaim">※ CHIOMAは食品です。特定の疾病の予防・治療を目的とせず、効能・効果を標榜するものではありません。</div>
+</section>
+
+<!-- USE -->
+<section class="spread" id="use">
+  <div class="section-head">
+    <span class="eyebrow">— Recommended Use</span>
+    <h2 class="section-title">お客様に伝えやすい、<em>4つの</em>使い方。</h2>
+  </div>
+
+  <div class="use-grid">
+    <article class="use-card">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-salon-talk-2.jpg" alt="朝のオレショット">
+      <div class="body">
+        <span class="num">i. Morning</span>
+        <h3>朝のオレショット</h3>
+        <p>10mlのオリーブオイルとレモン果汁を朝に。</p>
+      </div>
+    </article>
+    <article class="use-card">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-use-portrait.png" alt="就寝前の習慣">
+      <div class="body">
+        <span class="num">ii. Evening</span>
+        <h3>就寝前の習慣</h3>
+        <p>就寝前に10mlをそのまま。続けやすい分量。</p>
+      </div>
+    </article>
+    <article class="use-card">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-use-dining.png" alt="料理の仕上げ">
+      <div class="body">
+        <span class="num">iii. Kitchen</span>
+        <h3>料理の仕上げに</h3>
+        <p>サラダ、パスタ、パン、スープに加熱せず仕上げで。</p>
+      </div>
+    </article>
+    <article class="use-card">
+      <img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-shipping-box.jpg" alt="ギフト・店頭体験">
+      <div class="body">
+        <span class="num">iv. Gift</span>
+        <h3>ギフト・店頭体験</h3>
+        <p>30個・90個のパウチで体験配布やギフトに。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="spread" id="pricing">
+    <div class="section-head">
+      <span class="eyebrow">— Product Price / 2026.05</span>
+      <h2 class="section-title"><em>希望小売価格。</em></h2>
+    </div>
+
+    <div class="price-grid">
+      <article class="price-card">
+        <div class="price-visual"><img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-price-bottle.png" alt="500mlボトル"></div>
+        <div class="price-info">
+          <span class="price-cat">Bottle</span>
+          <h3>CHIOMA 500ml Bottle</h3>
+          <div class="price-amt">¥7,700<small>希望小売価格 (税別)</small></div>
+          <div class="price-sub">ディーラー様・サロン様の取引条件はお問い合わせください</div>
+          <ul class="price-feat">
+            <li>内容量：500ml × 1本</li>
+            <li>ご自宅用・ギフト提案の中心商品</li>
+            <li>オレショット習慣を続けたいお客様へ</li>
+          </ul>
+        </div>
+      </article>
+      <article class="price-card featured">
+        <div class="price-visual"><img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-green-pouch.png" alt="10mlパウチ30個"></div>
+        <div class="price-info">
+          <span class="price-cat">Pouch · S</span>
+          <h3>10ml Pouch × 30個</h3>
+          <div class="price-amt">¥6,500<small>希望小売価格 (税別)</small></div>
+          <div class="price-sub">ディーラー様・サロン様の取引条件はお問い合わせください</div>
+          <ul class="price-feat">
+            <li>内容量：10ml × 30個</li>
+            <li>1個あたり：約¥217</li>
+            <li>サロン体験配布・販売導入に</li>
+          </ul>
+        </div>
+      </article>
+      <article class="price-card">
+        <div class="price-visual"><img src="https://takeshibreks-glitch.github.io/chioma-lp/chioma-green-pouch.png" alt="10mlパウチ90個"></div>
+        <div class="price-info">
+          <span class="price-cat">Pouch · L</span>
+          <h3>10ml Pouch × 90個</h3>
+          <div class="price-amt">¥19,000<small>希望小売価格 (税別)</small></div>
+          <div class="price-sub">ディーラー様・サロン様の取引条件はお問い合わせください</div>
+          <ul class="price-feat">
+            <li>内容量：10ml × 90個</li>
+            <li>1個あたり：約¥211</li>
+            <li>キャンペーン・イベント提案に</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="price-meta">
+      <div class="price-meta-item"><div class="k">取引条件</div><div class="v">ディーラー様・サロン様向け価格はお問い合わせください</div></div>
+      <div class="price-meta-item"><div class="k">販売方式</div><div class="v">予約受注生産方式 / 売れた分だけ発注</div></div>
+      <div class="price-meta-item"><div class="k">初回導入</div><div class="v">サンプル提案から開始可能</div></div>
+      <div class="price-meta-item"><div class="k">お問い合わせ</div><div class="v">山村剛司 / info@common-hairdesign.com</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="spread" id="faq">
+  <div class="section-head">
+    <span class="eyebrow">— FAQ</span>
+    <h2 class="section-title">導入前の、<em>気になること。</em></h2>
+  </div>
+
+  <div class="faq">
+    <details open>
+      <summary>
+        <span class="num">01</span>
+        <span>初回サンプルはありますか？</span>
+        <span class="plus">+</span>
+      </summary>
+      <div>導入前に、まず味・香り・オレショットとしての提案方法を確認いただけます。詳細はお問い合わせ時にご案内します。</div>
+    </details>
+    <details>
+      <summary>
+        <span class="num">02</span>
+        <span>最小発注数はいくつですか？</span>
+        <span class="plus">+</span>
+      </summary>
+      <div>予約販売方式のため、売れた分だけ発注しやすい設計です。ロットや納期は取引条件に合わせてご案内します。</div>
+    </details>
+    <details>
+      <summary>
+        <span class="num">03</span>
+        <span>医薬品のように説明してもよいですか？</span>
+        <span class="plus">+</span>
+      </summary>
+      <div>いいえ。CHIOMAは食品です。成分に関する一般的な情報や、食習慣としての取り入れ方をご案内ください。疾病の予防・治療や効能効果をうたう表現は避けてください。</div>
+    </details>
+    <details>
+      <summary>
+        <span class="num">04</span>
+        <span>賞味期限と保存方法は？</span>
+        <span class="plus">+</span>
+      </summary>
+      <div>賞味期限は製造から18ヶ月（未開封）です。直射日光・高温多湿を避けて常温保存し、開封後は3ヶ月以内を目安にご使用ください。</div>
+    </details>
+    <details>
+      <summary>
+        <span class="num">05</span>
+        <span>お客様へどのように説明すればよいですか？</span>
+        <span class="plus">+</span>
+      </summary>
+      <div>「韓国で話題のオレショットをご存知ですか？」をきっかけに、10mlパウチを1回分として試してもらう流れがおすすめです。気に入った方へ500mlボトルを予約販売で提案できます。</div>
+    </details>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="eyebrow">— Sample Request</div>
+  <h2>サロンの次の<em>店販提案</em>を、<br>ここから。</h2>
+  <a class="final-cta" href="mailto:info@common-hairdesign.com">メールでサンプルを請求 →</a>
+  <div class="final-sub">Instagram DM: @chioma_olive ／ 担当：山村</div>
+</section>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-logo">CHIOMA</div>
+      <div class="foot-tag">Coratina 100% Extra Virgin Olive Oil — Corato, Puglia, Italy</div>
+    </div>
+    <div>
+      <div class="foot-h">Contact</div>
+      <a class="foot-link" href="mailto:info@common-hairdesign.com">info@common-hairdesign.com</a>
+      <a class="foot-link">Instagram: @chioma_olive</a>
+      <a class="foot-link">担当：山村剛司</a>
+    </div>
+    <div>
+      <div class="foot-h">Index</div>
+      <a class="foot-link" href="#trend">Trend</a>
+      <a class="foot-link" href="#salon">Salon</a>
+      <a class="foot-link" href="#product">Product</a>
+      <a class="foot-link" href="#pricing">Price</a>
+    </div>
+    <div>
+      <div class="foot-h">About</div>
+      <a class="foot-link">Corato, Puglia</a>
+      <a class="foot-link">Tedone Farm</a>
+      <a class="foot-link">Cold Pressed · 27°C</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 CHIOMA / Common Hair Design</span>
+    <span>※ 食品です。医薬品ではありません。</span>
+  </div>
+</footer>
+
+<script>
+  const tb = document.getElementById('topbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) tb.classList.add('scrolled'); else tb.classList.remove('scrolled');
+  }, { passive:true });
+</script>
+
+</body>
+</html>
