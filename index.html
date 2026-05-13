@@ -1,275 +1,146 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CHIOMA | オレショット対応オリーブオイル導入資料</title>
-    <meta
-      name="description"
-      content="CHIOMAは、イタリア・プーリア州コラート産コラティーナ種100%のエクストラバージンオリーブオイル。韓国発オレショット需要、予約販売、商品価格、成分情報をまとめた導入資料です。"
-    />
-    <link rel="preload" as="image" href="chioma-hero-woman.jpg" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="CHIOMA トップへ">CHIOMA</a>
-      <nav class="site-nav" aria-label="主要ナビゲーション" data-nav>
-        <a href="#trend">Trend</a>
-        <a href="#business">Business</a>
-        <a href="#product">Product</a>
-        <a href="#pricing">Price</a>
-      </nav>
-      <a class="nav-cta" href="mailto:info@common-hairdesign.com">サンプル請求</a>
-      <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" data-menu-button>
-        <span></span>
-        <span></span>
-      </button>
-    </header>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHIOMA LP — 3 Design Variations</title>
+<template id="__bundler_thumbnail" data-bg-color="#fafaf7">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#fafaf7"/>
+    <text x="600" y="380" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="160" fill="#1a1a1a" font-weight="500">CHIOMA</text>
+    <text x="600" y="460" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="22" fill="#a8401e" letter-spacing="8">3  D E S I G N  S T U D I E S</text>
+  </svg>
+</template>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fafaf7;
+    --surface:#ffffff;
+    --ink:#1a1a1a;
+    --ink-2:#5a5a55;
+    --ink-3:#9a958a;
+    --line:#e6e2d6;
+    --accent:#8a6f2a;
+    --accent-2:#a8401e;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink)}
+  body{font-family:"Noto Sans JP","Hanken Grotesk",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1320px;margin:0 auto;padding:48px 32px}
+  header{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:24px;margin-bottom:64px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+  .brand{font-family:"Cormorant Garamond",serif;font-size:32px;letter-spacing:.32em;font-weight:500;color:var(--ink)}
+  .lab{font-family:"Hanken Grotesk",sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:var(--accent);font-weight:600;display:block;margin-bottom:8px}
+  h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:56px;line-height:1.1;margin:0 0 14px;max-width:18ch;color:var(--ink);letter-spacing:-0.01em}
+  h1 em{font-style:italic;color:var(--accent-2)}
+  .lede{color:var(--ink-2);font-size:15px;max-width:60ch;margin:0}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:18px;
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .3s, border-color .3s, box-shadow .3s;
+  }
+  .card:hover{transform:translateY(-6px);border-color:var(--ink);box-shadow:0 24px 50px -20px rgba(26,26,26,.18)}
+  .preview{aspect-ratio:4/5;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#f4f2eb}
+  .preview iframe{
+    position:absolute;top:0;left:0;
+    width:1280px;height:1600px;
+    transform:scale(.36);transform-origin:top left;
+    border:0;pointer-events:none;
+  }
+  .body{padding:24px 28px 28px}
+  .num{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--accent-2);font-size:14px;font-weight:500;letter-spacing:.06em}
+  .name{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:30px;line-height:1.15;margin:6px 0 6px;letter-spacing:-.01em;color:var(--ink)}
+  .name em{font-style:italic;color:var(--accent-2)}
+  .desc{font-size:13.5px;color:var(--ink-2);margin:0 0 20px;line-height:1.7}
+  .swatches{display:flex;gap:6px;margin-bottom:18px}
+  .sw{width:18px;height:18px;border-radius:50%;border:1px solid var(--line);box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+  .open{
+    display:inline-flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:13px 18px;background:var(--ink);border:1px solid var(--ink);color:#fff;
+    font-family:"Hanken Grotesk",sans-serif;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    border-radius:999px;transition:.25s;
+  }
+  .open:hover{background:var(--accent-2);border-color:var(--accent-2);color:#fff}
+  .open span{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:18px;letter-spacing:0;text-transform:none;font-weight:400}
+  .meta{margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--ink-3);font-family:"Hanken Grotesk",sans-serif;text-transform:uppercase;letter-spacing:.18em}
+  .meta span::before{content:"·";color:var(--accent-2);margin-right:6px}
+  .footer{margin-top:64px;padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--ink-3)}
+  .footer .src{color:var(--accent-2)}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}.preview iframe{width:980px;height:1200px;transform:scale(.4)}h1{font-size:40px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <span class="lab">CHIOMA — Landing Page Studies</span>
+      <h1>同じ内容で、<em>3つの</em>違うデザイン。</h1>
+      <p class="lede">既存LPの内容（オレショット対応オリーブオイル「CHIOMA」のディーラー・サロン向け資料）はそのまま、別の視覚言語で組み直した3案。各カードから実LPを開けます。</p>
+    </div>
+    <div class="brand">CHIOMA</div>
+  </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="section-label">Ole Shot Trend / Dealer & Salon Proposal</p>
-          <h1>韓国発の飲む美容習慣を、<em>サロンの新しい店販へ。</em></h1>
-          <p>
-            CHIOMAは、イタリア・プーリア州コラート産コラティーナ種100%のエクストラバージンオリーブオイル。朝のオレショット、腸活、インナーケアに関心の高いお客様へ、サロンから自然に提案できる食品店販です。
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:info@common-hairdesign.com">無料サンプルを請求する</a>
-            <a class="button secondary" href="#pricing">商品価格を見る</a>
-          </div>
-          <p class="hero-note">ディーラー・サロン様向け資料 ／ 予約販売方式 ／ 食品です。医薬品ではありません。</p>
+  <div class="grid">
+    <article class="card">
+      <div class="preview"><iframe src="designs/v1-editorial.html" loading="lazy" title="V1"></iframe></div>
+      <div class="body">
+        <span class="num">— 01 / Editoriale</span>
+        <h2 class="name">紙の<em>雑誌</em>の手触り。</h2>
+        <p class="desc">クリーム紙の質感、大胆なセリフ、章番号と図版キャプション。POPEYEやCasa Brutusのような独立系雑誌の文法でB2B資料を組み直した案。</p>
+        <div class="swatches">
+          <span class="sw" style="background:#f1ebd9"></span>
+          <span class="sw" style="background:#1a1612"></span>
+          <span class="sw" style="background:#a8401e"></span>
+          <span class="sw" style="background:#4a5a2a"></span>
+          <span class="sw" style="background:#b08940"></span>
         </div>
-        <figure class="hero-media">
-          <img src="chioma-hero-woman.jpg" alt="キッチンでほほえむ女性とCHIOMAのボトル" />
-        </figure>
-      </section>
+        <a class="open" href="designs/v1-editorial.html">案01 を開く <span>→</span></a>
+        <div class="meta"><span>Cream Paper</span><span>Cormorant + Noto Serif JP</span></div>
+      </div>
+    </article>
 
-      <section id="trend" class="gap section-pad">
-        <div class="container two-col">
-          <div>
-            <p class="section-label">Market Trend</p>
-            <h2>韓国で広がった<em>オレショット</em>が、日本の美容市場へ。</h2>
-          </div>
-          <div class="text-block">
-            <p>オレショットは、朝の空腹時にエクストラバージンオリーブオイル約10mlとレモン果汁を合わせて飲む美容・健康習慣。韓国ではSNS、アイドル・女優の発信、ドラッグストア検索の増加をきっかけに「飲む美容ルーティン」として注目されています。</p>
-            <p>日本でも韓国美容、腸活、インナーケアへの関心は高まり続けています。サロンは髪だけでなく、肌・頭皮・食事・暮らしの相談が生まれる場所。CHIOMAは、その会話から自然に提案できる新しい店販商材です。</p>
-          </div>
+    <article class="card">
+      <div class="preview"><iframe src="designs/v2-noir.html" loading="lazy" title="V2"></iframe></div>
+      <div class="body">
+        <span class="num">— 02 / Notturno</span>
+        <h2 class="name">夜の<em>シネマ</em>のように。</h2>
+        <p class="desc">黒×ゴールドのプレミアム路線。シネマティックなフォト、章ごとのローマ数字、Italian copyの差し色で「上質な食品」としての佇まいを強調。</p>
+        <div class="swatches">
+          <span class="sw" style="background:#0a0c0a"></span>
+          <span class="sw" style="background:#1d2a1f"></span>
+          <span class="sw" style="background:#c9a961"></span>
+          <span class="sw" style="background:#ebe3d0"></span>
+          <span class="sw" style="background:#a3863f"></span>
         </div>
-        <div class="container metrics-grid">
-          <div><strong>7倍以上</strong><span>韓国オリーブヤングでの「オリーブオイル」検索増加</span></div>
-          <div><strong>+2479%</strong><span>同期間の「レモン果汁」検索増加</span></div>
-          <div><strong>+109%</strong><span>韓国オリーブオイル市場の前年比成長</span></div>
+        <a class="open" href="designs/v2-noir.html">案02 を開く <span>→</span></a>
+        <div class="meta"><span>Black + Gold</span><span>Shippori Mincho + Cormorant</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="preview"><iframe src="designs/v3-soft.html" loading="lazy" title="V3"></iframe></div>
+      <div class="body">
+        <span class="num">— 03 / Daily Ritual</span>
+        <h2 class="name">毎朝の<em>習慣</em>として。</h2>
+        <p class="desc">ベージュ×セージ×ピーチのやわらか系。ベントグリッドの統計、丸みのあるカード、韓国美容〜ウェルネス系プロダクトの空気感でB2C寄りの提案にも転用しやすい。</p>
+        <div class="swatches">
+          <span class="sw" style="background:#f7f2e8"></span>
+          <span class="sw" style="background:#7c8a6a"></span>
+          <span class="sw" style="background:#e8a890"></span>
+          <span class="sw" style="background:#4a5a3e"></span>
+          <span class="sw" style="background:#2a2a26"></span>
         </div>
-      </section>
+        <a class="open" href="designs/v3-soft.html">案03 を開く <span>→</span></a>
+        <div class="meta"><span>Cream + Sage + Peach</span><span>Fraunces + Noto Sans JP</span></div>
+      </div>
+    </article>
+  </div>
 
-      <section class="image-band">
-        <img src="chioma-harvest-hand.jpg" alt="手で搾られるオリーブとオリーブオイル" />
-      </section>
-
-      <section id="business" class="ritual section-pad">
-        <div class="container split">
-          <figure>
-            <img src="chioma-salon-talk-1.jpg" alt="サロンで美容師とお客様が会話している様子" />
-          </figure>
-          <div class="panel-copy">
-            <p class="section-label">Salon Opportunity</p>
-            <h2>「知っているサロン」が、先に動ける。</h2>
-            <p>オレショットの入り口として、CHIOMAの10mlパウチは1回分をそのまま試せる体験ツールです。「韓国で流行っている朝の美容習慣」と紹介できるため、食品店販が初めてのサロンでも会話をつくりやすくなります。</p>
-            <div class="mini-card">
-              <img src="chioma-olive-stack.jpg" alt="オリーブにオイルをかけた一皿" />
-              <span>10mlパウチで体験し、気に入った方へ500mlボトルを予約販売。棚スペースも在庫リスクも抑えて始められます。</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="inventory section-pad">
-        <div class="container">
-          <p class="section-label">No Inventory Risk</p>
-          <h2>予約販売方式だから、<br />売れた分だけ発注できます。</h2>
-          <div class="flow-grid">
-            <div><small>01</small><strong>サンプル提案</strong><p>10mlパウチで味と使い方を体験してもらう。</p></div>
-            <div><small>02</small><strong>サロンで予約受付</strong><p>購入希望のお客様分だけ注文をまとめる。</p></div>
-            <div><small>03</small><strong>必要数だけ発注</strong><p>食品ロスと在庫負担を抑えて導入できる。</p></div>
-            <div><small>04</small><strong>500mlへ展開</strong><p>習慣化したお客様へ本品・ギフトを提案。</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="product" class="product section-pad">
-        <div class="container">
-          <p class="section-label">Product</p>
-          <h2>人との出会いから生まれた、<br />コラート産EVOO。</h2>
-          <div class="product-grid">
-            <figure class="product-main">
-              <img src="chioma-product-hand.jpg" alt="手に持たれたCHIOMAの500mlボトル" />
-            </figure>
-            <div class="specs">
-              <div><span>品種</span><strong>コラティーナ種 100%</strong></div>
-              <div><span>産地</span><strong>イタリア / プーリア州コラート産</strong></div>
-              <div><span>タイプ</span><strong>エクストラバージンオリーブオイル</strong></div>
-              <div><span>搾油方法</span><strong>コールドプレス（27°C以下）</strong></div>
-              <div><span>用途</span><strong>食用（オレショット・料理・ギフト）</strong></div>
-              <div><span>賞味期限</span><strong>製造から18ヶ月（未開封）</strong></div>
-              <div><span>保存方法</span><strong>直射日光・高温多湿を避けて常温保存</strong></div>
-            </div>
-          </div>
-          <p class="story-note">CHIOMAは、大分市でオーガニック美容室を20年経営してきた山村剛司が、イタリア・プーリア州コラートで出会った生産者との信頼関係から届けるオリーブオイルです。商社を通さず、テドーネ農園との直接のつながりを大切にしています。</p>
-          <div class="label-gallery" aria-label="CHIOMAの世界観">
-            <img src="chioma-blue-texture.jpg" alt="CHIOMAの青いラベルテクスチャ" />
-            <img src="chioma-olive-stack.jpg" alt="オリーブとオリーブオイル" />
-            <img src="chioma-bottle-label-1.jpg" alt="CHIOMAボトルのラベル" />
-          </div>
-        </div>
-      </section>
-
-      <section id="quality" class="salon section-pad">
-        <div class="container">
-          <p class="section-label">Ingredient & Evidence</p>
-          <h2>高ポリフェノール品種として、<em>説明しやすい成分情報</em>があります。</h2>
-          <div class="card-grid">
-            <article>
-              <span>01</span>
-              <h3>ポリフェノール総量 400〜600mg/kg</h3>
-              <p>一般的なEVOOの目安とされる〜150mg/kgに比べ、高いポリフェノール量を持つコラティーナ種。苦味と辛味は成分の豊かさを伝える特徴です。</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>酸度 0.2%以下</h3>
-              <p>エクストラバージンオリーブオイル基準の0.8%以下を大きく下回る品質目安。フレッシュな状態を大切にした商品です。</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>オレオカンタール・オレウロペイン</h3>
-              <p>高品質EVOOに含まれるフェノール化合物として研究されている成分。美容意識の高いお客様へ、一般的な成分情報として共有しやすい切り口です。</p>
-            </article>
-          </div>
-          <p class="evidence-note">※CHIOMAは食品です。特定の疾病の予防・治療を目的とするものではなく、効能・効果を標榜するものではありません。</p>
-        </div>
-      </section>
-
-      <section class="cycle section-pad">
-        <div class="container">
-          <p class="section-label">Recommended Use</p>
-          <h2>お客様に伝えやすい、<br />4つの使い方。</h2>
-          <div class="cycle-grid">
-            <div><small>01</small><strong>朝のオレショット</strong><p>10mlのオリーブオイルとレモン果汁を朝に。韓国美容トレンドとして紹介しやすい使い方です。</p></div>
-            <div><small>02</small><strong>就寝前の習慣</strong><p>就寝前に10mlをそのまま。毎日続けやすい分量として、パウチ提案にも向いています。</p></div>
-            <div><small>03</small><strong>料理の仕上げに</strong><p>サラダ、パスタ、パン、スープなどに。加熱せず仕上げに使うと、香りと風味を楽しめます。</p></div>
-            <div><small>04</small><strong>ギフト・店頭体験に</strong><p>30個・90個のパウチは、来店後の体験配布やキャンペーン、ギフト提案にも活用できます。</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="people section-pad">
-        <div class="container image-grid">
-          <img src="chioma-salon-talk-2.jpg" alt="美容室で会話する女性たち" />
-          <img src="chioma-use-portrait.png" alt="CHIOMAのボトルと笑顔の女性" />
-          <img src="chioma-shipping-box.jpg" alt="CHIOMAボトルを箱から取り出す様子" />
-          <img src="chioma-use-dining.png" alt="料理とCHIOMAのボトル" />
-        </div>
-      </section>
-
-      <section id="pricing" class="pricing section-pad">
-        <div class="container">
-          <p class="section-label">Product Price / 2026.05</p>
-          <h2>希望小売価格。</h2>
-          <div class="pricing-grid">
-            <article class="price-card featured">
-              <img src="chioma-price-bottle.png" alt="木のテーブルに置かれたCHIOMA 500mlボトル" />
-              <p class="pc-tag">Bottle</p>
-              <h3>CHIOMA 500ml Bottle</h3>
-              <div class="price">¥9,800</div>
-              <p class="retail">希望小売価格（税別）</p>
-              <p class="margin">ディーラー様・サロン様の取引条件はお問い合わせください</p>
-              <ul>
-                <li>内容量：500ml × 1本</li>
-                <li>ご自宅用・ギフト提案の中心商品</li>
-                <li>オレショット習慣を続けたいお客様へ</li>
-              </ul>
-            </article>
-            <article class="price-card">
-              <img class="pouch-product" src="chioma-green-pouch.png" alt="CHIOMA 10mlパウチ" />
-              <p class="pc-tag">Pouch S</p>
-              <h3>CHIOMA 10ml Pouch × 30個</h3>
-              <div class="price">¥6,500</div>
-              <p class="retail">希望小売価格（税別）</p>
-              <p class="margin">ディーラー様・サロン様の取引条件はお問い合わせください</p>
-              <ul>
-                <li>内容量：10ml × 30個</li>
-                <li>1個あたり：約¥217</li>
-                <li>サロン体験配布・販売導入に</li>
-              </ul>
-            </article>
-            <article class="price-card">
-              <img class="pouch-product" src="chioma-green-pouch.png" alt="CHIOMA 10mlパウチ大容量セット" />
-              <p class="pc-tag">Pouch L</p>
-              <h3>CHIOMA 10ml Pouch × 90個</h3>
-              <div class="price">¥19,000</div>
-              <p class="retail">希望小売価格（税別）</p>
-              <p class="margin">ディーラー様・サロン様の取引条件はお問い合わせください</p>
-              <ul>
-                <li>内容量：10ml × 90個</li>
-                <li>1個あたり：約¥211</li>
-                <li>キャンペーン・イベント提案に</li>
-              </ul>
-            </article>
-          </div>
-          <div class="trade-terms">
-            <div><span>取引条件</span><strong>ディーラー様・サロン様向け価格はお問い合わせください</strong></div>
-            <div><span>販売方式</span><strong>予約受注生産方式 / 売れた分だけ発注</strong></div>
-            <div><span>初回導入</span><strong>サンプル提案から開始可能</strong></div>
-            <div><span>お問い合わせ</span><strong>担当：山村剛司 / info@common-hairdesign.com</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" class="faq section-pad">
-        <div class="container">
-          <p class="section-label">FAQ</p>
-          <h2>導入前の気になること。</h2>
-          <details>
-            <summary>初回サンプルはありますか？</summary>
-            <p>導入前に、まず味・香り・オレショットとしての提案方法を確認いただけます。詳細はお問い合わせ時にご案内します。</p>
-          </details>
-          <details>
-            <summary>最小発注数はいくつですか？</summary>
-            <p>予約販売方式のため、売れた分だけ発注しやすい設計です。ロットや納期は取引条件に合わせてご案内します。</p>
-          </details>
-          <details>
-            <summary>医薬品のように説明してもよいですか？</summary>
-            <p>いいえ。CHIOMAは食品です。成分に関する一般的な情報や、食習慣としての取り入れ方をご案内ください。疾病の予防・治療や効能効果をうたう表現は避けてください。</p>
-          </details>
-          <details>
-            <summary>賞味期限と保存方法は？</summary>
-            <p>賞味期限は製造から18ヶ月（未開封）です。直射日光・高温多湿を避けて常温保存し、開封後は3ヶ月以内を目安にご使用ください。</p>
-          </details>
-          <details>
-            <summary>お客様へどのように説明すればよいですか？</summary>
-            <p>「韓国で話題のオレショットをご存知ですか？」をきっかけに、10mlパウチを1回分として試してもらう流れがおすすめです。気に入った方へ500mlボトルを予約販売で提案できます。</p>
-          </details>
-        </div>
-      </section>
-
-      <section class="final-cta">
-        <img src="chioma-bottle-label-1.jpg" alt="CHIOMAのボトルラベル" />
-        <div>
-          <p class="section-label">Sample Request</p>
-          <h2>オレショット需要を、サロンの次の店販提案へ。</h2>
-          <a class="button primary" href="mailto:info@common-hairdesign.com">メールでサンプルを請求する</a>
-          <p class="cta-text">Instagram DM：@chioma_olive ／ 担当：山村</p>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <strong>CHIOMA</strong>
-      <span>Coratina 100% Extra Virgin Olive Oil — Corato, Puglia, Italy</span>
-      <span>info@common-hairdesign.com ／ Instagram: @chioma_olive ／ ※食品です。医薬品ではありません。</span>
-    </footer>
-
-    <script src="script.js"></script>
-  </body>
+  <div class="footer">
+    <span>CHIOMA — Coratina 100% EVOO / Corato, Puglia</span>
+    <span>Source content: <a class="src" href="https://takeshibreks-glitch.github.io/chioma-lp/" target="_blank">takeshibreks-glitch.github.io/chioma-lp</a></span>
+  </div>
+</div>
+</body>
 </html>
